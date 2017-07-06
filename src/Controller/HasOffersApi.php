@@ -14,4 +14,9 @@ class HasOffersApi
     public function __construct()
     {
     }
+
+    public function accessCall()
+    {
+
+    }
 }
