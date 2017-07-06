@@ -1,0 +1,20 @@
+{
+    "name": "projectstage/hasoffers-api-wrapper",
+    "description": "Make easy API cals against the HasOffers API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carsten Lorenz",
+            "email": "carsten.lorenz@projectstage.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "HasoffersApiWrapper": "src/"
+        }
+    }
+}
