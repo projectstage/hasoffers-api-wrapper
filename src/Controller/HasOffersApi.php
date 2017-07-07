@@ -13,6 +13,7 @@
 class HasOffersApi
 {
 
+    CONST NETWORK_TOKEN_PARAM_MAME = 'NetworkToken';
     /**
      * @var string
      */
@@ -26,7 +27,7 @@ class HasOffersApi
     /**
      * @var string
      */
-    protected $api_doamin;
+    protected $api_connect_url;
 
     /**
      * @var string
@@ -56,42 +57,24 @@ class HasOffersApi
     /**
      * @param string $network_id
      * @param string $api_key
-     * @param string $target
-     * @param string $method
-     * @param array $params
+     * @param string $api_version
+     * @param string $response_type
      * @throws ApiKeyEmptyException
-     * @throws MethodEmptyException
      * @throws NetworkIdEmptyException
-     * @throws TargetEmptyException
      */
-    public function prepareConnect(string $network_id, string $api_key, string $target, string $method, array $params = [])
+    public function prepareConnect(string $network_id, string $api_key, string $api_version = 'Apiv3', string $response_type = 'json')
     {
-        if($network_id == '') {
+        if ($network_id == '') {
             throw new NetworkIdEmptyException('Network ID seems to be empty');
         }
 
-        if($api_key == '') {
+        if ($api_key == '') {
             throw new ApiKeyEmptyException('Api key seems to be empty');
         }
 
-        if($target == '') {
-            throw new TargetEmptyException('Target seems to be empty');
-        }
-
-        if($method == '') {
-            throw new MethodEmptyException('Method seems to be empty');
-        }
-
-        /*
-         * https://NETWORKID.api.hasoffers.com/Apiv3/json?NetworkToken=APIKEY&Target=Offer&Method=findAll
-
-Breaking the URL down:
-
-Base URL: https://NETWORKID.api.hasoffers.com/Apiv3/json?
-API Key: NetworkToken=APIKEY
-Controller: Target=Offer
-Method: Method=findAll
-         */
+        // set the network id and create url API string
+        $this->setNetworkId($network_id);
+        $this->api_connect_url = $this->$this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
     }
 
     /**
@@ -104,14 +87,10 @@ Method: Method=findAll
 
     /**
      * @param string $network_id
-     * @return $this
      */
-    public function setNetworkId(string $network_id)
+    private function setNetworkId(string $network_id)
     {
         $this->network_id = $network_id;
-
-        $this->api_doamin = $this->$this->protocoll.'://'.$this->network_id.'.'.$this->api_url_part;
-        return $this;
     }
 
     /**
