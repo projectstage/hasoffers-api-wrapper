@@ -1,6 +1,6 @@
 {
     "name": "projectstage/hasoffers-api-wrapper",
-    "description": "Make easy API cals against the HasOffers API",
+    "description": "Make easy API calls against the HasOffers API",
     "license": "MIT",
     "authors": [
         {
