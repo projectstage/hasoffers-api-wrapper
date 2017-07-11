@@ -1,10 +1,15 @@
 <?php
+
+namespace HasOffersApi\Controller;
+
 /**
  * Created by PhpStorm.
  * User: carsten
  * Date: 7/6/17
  * Time: 12:55 PM
  */
+use HasOffersApi\Exceptions\ApiKeyEmptyException;
+use HasOffersApi\Exceptions\NetworkIdEmptyException;
 
 /**
  * Class HasOffersApi
@@ -39,16 +44,6 @@ class HasOffersApi
      */
     protected $protocoll = 'https';
 
-    /**
-     * @var string
-     */
-    protected $target;
-
-    /**
-     * @var string
-     */
-    protected $method;
-
 
     public function __construct()
     {
@@ -74,7 +69,7 @@ class HasOffersApi
 
         // set the network id and create url API string
         $this->setNetworkId($network_id);
-        $this->api_connect_url = $this->$this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
+        $this->api_connect_url = $this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
     }
 
     /**
@@ -114,9 +109,49 @@ class HasOffersApi
     /**
      * @return string
      */
-    public function getApiDoamin(): string
+    public function getApiConnectUrl(): string
     {
-        return $this->api_doamin;
+        return $this->api_connect_url;
+    }
+
+    /**
+     * @param string $api_connect_url
+     */
+    public function setApiConnectUrl(string $api_connect_url)
+    {
+        $this->api_connect_url = $api_connect_url;
+    }
+
+
+    public function post() {
+
+    }
+
+    public function get(array $params) {
+        return $this->curl($params);
+    }
+
+    private function curl(array $params) {
+        // NetworkToken=APIKEY&Target=Offer&Method=findAll
+
+
+
+        $params = http_build_query($params);
+
+        $url = $this->api_connect_url.'&'.$params;
+
+        echo $url."\n";
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url
+        ));
+
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        var_dump(json_decode($result));
     }
 
 }

@@ -10,11 +10,12 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",
+        "ext-curl": "*"
     },
     "autoload": {
         "psr-0": {
-            "HasoffersApiWrapper": "src/"
+            "HasOffersApi": "src/"
         }
     }
 }

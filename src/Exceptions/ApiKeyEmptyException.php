@@ -7,6 +7,9 @@
  * Time: 5:12 PM
  */
 
+namespace HasOffersApi\Exceptions;
+
+
 /**
  * Class NetworkIdEmptyException
  * @package ApiKeyEmptyException\Exceptions
