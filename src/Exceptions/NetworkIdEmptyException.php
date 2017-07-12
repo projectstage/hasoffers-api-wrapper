@@ -12,7 +12,7 @@ namespace HasOffersApi\Exceptions;
 
 /**
  * Class NetworkIdEmptyException
- * @package HasoffersApiWrapper\Exceptions
+ * @package HasOffersApi\Exceptions
  */
 class NetworkIdEmptyException extends \Exception
 {
