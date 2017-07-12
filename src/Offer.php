@@ -11,7 +11,7 @@ use HasOffersApi\Interfaces\OfferInterface;
  */
 
 
-class Offer extends HasOffersApi implements OfferInterface
+class Offer implements OfferInterface
 {
 
     CONST PARAM_INDEX_TARGET = 'Target';
@@ -23,6 +23,8 @@ class Offer extends HasOffersApi implements OfferInterface
     CONST PARAM_INDEX_LIMIT = 'limit';
     CONST PARAM_INDEX_PAGE = 'page';
     CONST PARAM_INDEX_CONTAIN = 'contain';
+
+    CONST MAX_LIMIT = 1250;
 
     /**
      * @var array
@@ -59,19 +61,23 @@ class Offer extends HasOffersApi implements OfferInterface
      */
     protected $limit = 10;
 
+    /**
+     * @var int
+     */
+    protected $page = 1;
+
+    /**
+     * @var HasOffersApi
+     */
+    protected $HasOffersApi;
 
     /**
      * Offer constructor.
-     * @param string $network_id
-     * @param string $api_key
-     * @param string $api_version
-     * @param string $response_type
+     * @param HasOffersApi $HasOffersApi
      */
-    public function __construct(string $network_id, string $api_key, string $api_version = 'Apiv3', string $response_type = 'json')
+    public function __construct(HasOffersApi $HasOffersApi)
     {
-        parent::__construct();
-        $this->prepareConnect($network_id,$api_key,$api_version,$response_type);
-
+        $this->HasOffersApi = $HasOffersApi;
         $this->url_params[self::PARAM_INDEX_TARGET] = $this->target;
     }
 
@@ -185,22 +191,47 @@ class Offer extends HasOffersApi implements OfferInterface
      */
     public function setLimit(int $limit)
     {
+        if($limit > self::MAX_LIMIT) {
+            $limit = self::MAX_LIMIT;
+        }
+
         $this->limit = $limit;
         $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_LIMIT => $this->limit]);
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getPage(): int
+    {
+        return $this->page;
+    }
 
+    /**
+     * @param int $page
+     * @return $this
+     */
+    public function setPage(int $page)
+    {
+        $this->page = $page;
+        $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_PAGE => $this->page]);
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function findAll()
     {
+        try {
+            $this->url_params[self::PARAM_INDEX_METHOD] = 'findAll';
+            $http_query_string = http_build_query($this->url_params);
 
-        $this->url_params[self::PARAM_INDEX_METHOD] = 'findAll';
-
-
-        $http_query_string = http_build_query($this->url_params);
-        var_dump($this->url_params);
-        var_dump($http_query_string);
-        var_dump($this->getApiConnectUrl().'&'.$http_query_string);
-
+            return $this->HasOffersApi->callApi($http_query_string);
+        } catch(\Exception $e) {
+            throw $e;
+        }
     }
 }

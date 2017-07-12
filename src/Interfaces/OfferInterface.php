@@ -8,6 +8,8 @@
 
 namespace HasOffersApi\Interfaces;
 
+use HasOffersApi\HasOffersApi;
+
 
 /**
  * Created by PhpStorm.
@@ -17,6 +19,13 @@ namespace HasOffersApi\Interfaces;
  */
 interface OfferInterface
 {
+
+    /**
+     * OfferInterface constructor.
+     * @param HasOffersApi $HasOffersApi
+     */
+    public function __construct(HasOffersApi $HasOffersApi);
+
     /**
      * @return array
      */

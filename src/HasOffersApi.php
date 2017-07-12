@@ -19,6 +19,7 @@ class HasOffersApi
 {
 
     CONST NETWORK_TOKEN_PARAM_MAME = 'NetworkToken';
+
     /**
      * @var string
      */
@@ -44,12 +45,18 @@ class HasOffersApi
      */
     protected $protocoll = 'https';
 
-
-    public function __construct()
-    {
-    }
+    /**
+     * @var
+     */
+    protected $last_curl_result;
 
     /**
+     * @var
+     */
+    protected $last_curl_info;
+
+    /**
+     * HasOffersApi constructor.
      * @param string $network_id
      * @param string $api_key
      * @param string $api_version
@@ -57,7 +64,7 @@ class HasOffersApi
      * @throws ApiKeyEmptyException
      * @throws NetworkIdEmptyException
      */
-    public function prepareConnect(string $network_id, string $api_key, string $api_version = 'Apiv3', string $response_type = 'json')
+    public function __construct(string $network_id, string $api_key, string $api_version = 'Apiv3', string $response_type = 'json')
     {
         if ($network_id == '') {
             throw new NetworkIdEmptyException('Network ID seems to be empty');
@@ -71,6 +78,7 @@ class HasOffersApi
         $this->setNetworkId($network_id);
         $this->api_connect_url = $this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
     }
+
 
     /**
      * @return string
@@ -115,6 +123,22 @@ class HasOffersApi
     }
 
     /**
+     * @return mixed
+     */
+    public function getLastCurlResult()
+    {
+        return $this->last_curl_result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastCurlInfo()
+    {
+        return $this->last_curl_info;
+    }
+
+    /**
      * @param string $api_connect_url
      */
     public function setApiConnectUrl(string $api_connect_url)
@@ -122,36 +146,43 @@ class HasOffersApi
         $this->api_connect_url = $api_connect_url;
     }
 
-
-    public function post() {
-
+    /**
+     * @param string $http_query_string
+     * @return mixed
+     */
+    public function callApi(string $http_query_string) {
+        return $this->curl($http_query_string);
     }
 
-    public function get(array $params) {
-        return $this->curl($params);
-    }
+    /**
+     * @param string $http_query_string
+     * @return mixed
+     */
+    private function curl(string $http_query_string) {
 
-    private function curl(array $params) {
-        // NetworkToken=APIKEY&Target=Offer&Method=findAll
-
-
-
-        $params = http_build_query($params);
-
-        $url = $this->api_connect_url.'&'.$params;
-
-        echo $url."\n";
+        $error = new \stdClass();
 
         $curl = curl_init();
-        curl_setopt_array($curl, array(
+        curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $url
-        ));
+            CURLOPT_URL => $this->getApiConnectUrl().'&'.$http_query_string
+        ]);
 
-        $result = curl_exec($curl);
+        $this->last_curl_result = json_decode(curl_exec($curl));
+        $this->last_curl_info = curl_getinfo($curl);
+
         curl_close($curl);
 
-        var_dump(json_decode($result));
+        if(isset($this->last_curl_result->response) === true ) {
+            return $this->last_curl_result->response;
+        } else {
+            $error->status = -1;
+            $error->data = '';
+            $error->errorMessage = 'Seems there is no response field returned from end-point';
+
+            return $error;
+        }
+
     }
 
 }
