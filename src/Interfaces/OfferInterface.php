@@ -25,7 +25,7 @@ interface OfferInterface
     /**
      * @param array $fields
      * @return $this
-     * @throws Exception
+     * @throws \Exception
      */
     public function setFields(array $fields);
 
@@ -37,7 +37,7 @@ interface OfferInterface
     /**
      * @param array $filters
      * @return $this
-     * @throws Exception
+     * @throws \Exception
      */
     public function setFilters(array $filters);
 
@@ -49,7 +49,7 @@ interface OfferInterface
     /**
      * @param array $contain
      * @return $this
-     * @throws Exception
+     * @throws \Exception
      */
     public function setContain(array $contain);
 
@@ -61,7 +61,7 @@ interface OfferInterface
     /**
      * @param array $sort
      * @return $this
-     * @throws Exception
+     * @throws \Exception
      */
     public function setSort(array $sort);
 

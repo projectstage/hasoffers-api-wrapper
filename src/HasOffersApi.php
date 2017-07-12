@@ -1,6 +1,6 @@
 <?php
 
-namespace HasOffersApi\Controller;
+namespace HasOffersApi;
 
 /**
  * Created by PhpStorm.
