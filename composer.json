@@ -1,21 +1,23 @@
 {
-    "name": "projectstage/hasoffers-api-wrapper",
-    "description": "Make easy API calls against the HasOffers API",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Carsten Lorenz",
-            "email": "carsten.lorenz@projectstage.org"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.1.0",
-        "ext-curl": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "HasOffersApi\\": "src/"
-        }
+  "name": "projectstage/hasoffers-api-wrapper",
+  "description": "Make easy API calls against the HasOffers API",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Carsten Lorenz",
+      "email": "carsten.lorenz@projectstage.org"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1.0",
+    "ext-curl": "*",
+    "phpunit/phpunit": "^6.3@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "HasOffersApi\\": "src/",
+      "HasOffersApiTests\\": "tests/"
+    }
+  }
 }
