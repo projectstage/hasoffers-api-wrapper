@@ -1,0 +1,17 @@
+{
+  "Advertiser": "Advertiser associated with the offer (Advertiser)",
+  "AffiliateTierPayout": "Affiliate tier payouts defined for the offer (AffiliateTierPayout)",
+  "AffiliateTierRevenue": "Affiliate tier revenues defined for the offer (AffiliateTierRevenue)",
+  "Browser": "(Deprecated) Browsers targeted by the offer (Browser)",
+  "Country": "Countries geo-targeted by the offer (Country)",
+  "Goal": "Goals belonging to the offer (Goal)",
+  "Hostname": "Hostname associated with the offer (Hostname)",
+  "OfferCategory": "Offer categories associated with the offer (OfferCategory)",
+  "OfferGroup": "Offer groups associated with the offer (OfferGroup)",
+  "OfferUrl": "Landing pages associated with the offer (OfferUrl)",
+  "PayoutGroup": "Payout groups defined for the offer (PayoutGroupOffer)",
+  "RevenueGroup": "Revenue groups defined for the offer (RevenueGroupOffer)",
+  "Stat": "Stats associated with the offer (StatReport)",
+  "Subscription": "Subscriptions for the offer (Subscription)",
+  "Thumbnail": "Thumbnail image (OfferFile)"
+}

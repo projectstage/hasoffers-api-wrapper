@@ -20,6 +20,16 @@ class HasOffersApi
 
     CONST NETWORK_TOKEN_PARAM_MAME = 'NetworkToken';
 
+    CONST PARAM_INDEX_FIELDS = 'fields';
+    CONST PARAM_INDEX_FILTERS = 'filters';
+    CONST PARAM_INDEX_SORT = 'sort';
+    CONST PARAM_INDEX_LIMIT = 'limit';
+    CONST PARAM_INDEX_PAGE = 'page';
+    CONST PARAM_INDEX_CONTAIN = 'contain';
+
+    CONST MAX_LIMIT = 1250;
+
+
     /**
      * @var string
      */
@@ -56,6 +66,45 @@ class HasOffersApi
     protected $last_curl_info;
 
     /**
+     * @var array
+     */
+    protected $url_params = [];
+
+    /**
+     * @var array
+     */
+    protected $fields = [];
+
+    /**
+     * @var array
+     */
+    protected $filters = [];
+
+    /**
+     * @var array
+     */
+    protected $contain = [];
+
+    /**
+     * @var array
+     */
+    protected $sort = [];
+
+    /**
+     * @var int
+     */
+    protected $limit = 10;
+
+    /**
+     * @var string
+     */
+    protected $resources_folder_name = 'Resources';
+
+    /**
+     * @var int
+     */
+    protected $page = 1;
+    /**
      * HasOffersApi constructor.
      * @param string $network_id
      * @param string $api_key
@@ -79,6 +128,13 @@ class HasOffersApi
         $this->api_connect_url = $this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
     }
 
+    /**
+     * @return string
+     */
+    public function getResourcesPath()
+    {
+        return __DIR__.DIRECTORY_SEPARATOR.$this->resources_folder_name.DIRECTORY_SEPARATOR;
+    }
 
     /**
      * @return string
@@ -147,6 +203,14 @@ class HasOffersApi
     }
 
     /**
+     * @return array
+     */
+    public function getUrlParams(): array
+    {
+        return $this->url_params;
+    }
+
+    /**
      * @param string $http_query_string
      * @return mixed
      */
@@ -161,6 +225,8 @@ class HasOffersApi
     private function curl(string $http_query_string) {
 
         $error = new \stdClass();
+
+        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
 
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -182,7 +248,145 @@ class HasOffersApi
 
             return $error;
         }
+    }
 
+
+    /**
+     * @return array
+     */
+    public function getFields(): array
+    {
+        return $this->fields;
+    }
+
+    /**
+     * @param array $fields
+     * @return $this
+     * @throws \Exception
+     */
+    public function setFields(array $fields)
+    {
+        try {
+            $this->fields[self::PARAM_INDEX_FIELDS] = $fields[self::PARAM_INDEX_FIELDS];
+            $this->url_params = array_merge($this->url_params, $this->fields);
+            return $this;
+        } catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getFilters(): array
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param array $filters
+     * @return $this
+     * @throws \Exception
+     */
+    public function setFilters(array $filters)
+    {
+        try {
+            $this->filters[self::PARAM_INDEX_FILTERS] = $filters[self::PARAM_INDEX_FILTERS];
+            $this->url_params = array_merge($this->url_params, $this->filters);
+            return $this;
+        } catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getContain(): array
+    {
+        return $this->contain;
+    }
+
+    /**
+     * @param array $contain
+     * @return $this
+     * @throws \Exception
+     */
+    public function setContain(array $contain)
+    {
+        try {
+            $this->contain[self::PARAM_INDEX_CONTAIN] = $contain[self::PARAM_INDEX_CONTAIN];
+            $this->url_params = array_merge($this->url_params, $this->contain);
+            return $this;
+        } catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getSort(): array
+    {
+        return $this->sort;
+    }
+
+    /**
+     * @param array $sort
+     * @return $this
+     * @throws \Exception
+     */
+    public function setSort(array $sort)
+    {
+        try {
+            $this->sort[self::PARAM_INDEX_SORT] = $sort[self::PARAM_INDEX_SORT];
+            $this->url_params = array_merge($this->url_params, $this->sort);
+            return $this;
+        } catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * @return int
+     */
+    public function getLimit(): int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param int $limit
+     * @return $this
+     */
+    public function setLimit(int $limit)
+    {
+        if($limit > self::MAX_LIMIT) {
+            $limit = self::MAX_LIMIT;
+        }
+
+        $this->limit = $limit;
+        $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_LIMIT => $this->limit]);
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPage(): int
+    {
+        return $this->page;
+    }
+
+    /**
+     * @param int $page
+     * @return $this
+     */
+    public function setPage(int $page)
+    {
+        $this->page = $page;
+        $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_PAGE => $this->page]);
+        return $this;
     }
 
 }

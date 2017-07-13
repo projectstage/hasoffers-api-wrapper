@@ -1,0 +1,20 @@
+{
+  "account_id": "ID of Affiliate object for Offer Files having an 'interface' of 'affiliate'; Advertiser ID for if 'interface' is 'advertiser'; NULL for Network-owned Offer Files",
+  "code": "HTML code. Required for Offer Files with the types: 'email creative', 'text ad', and 'html ad'.",
+  "created": "The date the Offer File was created",
+  "display": "The display name for this file. Takes the name of the uploaded file if not set on create.",
+  "filename": "The name of the file that was uploaded, optionally passed in. Applicable to Offer Files with the types: 'file', 'image banner', 'flash banner', 'offer thumbnail', 'hidden'. Will be an empty string for types not accompanied by a file. Only the following file extensions are supported: 'jpg', 'jpeg', 'gif', 'png', 'swf', 'zip', 'txt', 'doc', 'docx', 'pdf', 'rtf'.",
+  "flash_vars": "Applicable only for Offer Files with 'type' of 'flash banner'",
+  "height": "Height in pixels. Required for Offer Files with the types: 'image banner', 'flash banner', 'offer thumbnail', and 'html ad'. Determined automatically for most image files, but if 'type' is 'flash banner' it must be explicitly provided.",
+  "id": "ID of unique object for this Offer File",
+  "interface": "Identifies the owner of this Offer File. The Network, Advertisers, and the Affiliate can all create Offer Files.",
+  "is_private": "Whether this Offer File should be visible to Affiliates. Applicable only when 'interface' is set to 'network'.",
+  "modified": "The last date the Offer File was updated",
+  "offer_id": "The ID of the Offer to which this Offer File is associated",
+  "size": "The size of the uploaded file in bytes, recorded at the time of upload. For OfferFile objects not referencing an uploaded file, this value is 0.",
+  "status": "The status of the Offer File",
+  "thumbnail": "The URL of a thumbnail image. Thumbnails are auto-generated on upload for most Offer Files of type 'image banner' or where the uploaded file is one of: 'gif', 'jpg', 'jpeg', 'png'.",
+  "type": "The type of Offer File. For more information on each type, see: help.tune.com/hasoffers/creative-files-overview/.",
+  "url": "The URL for the uploaded file (if applicable)",
+  "width": "Width in pixels. Required for offer files with the types 'image banner', 'flash banner', 'offer thumbnail', and 'html ad'. Determined automatically for most image files, but if 'type' is 'flash banner' it must be explicitly provided."
+}
