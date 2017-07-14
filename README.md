@@ -61,7 +61,7 @@ If you discover any security related issues, please email :author_email instead 
 
 ## Credits
 
-- [:author_name][link-author]
+- [Carsten Lorenz][link-author]
 - [All Contributors][link-contributors]
 
 ## License
