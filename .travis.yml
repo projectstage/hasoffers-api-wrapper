@@ -1,0 +1,6 @@
+language: php
+dist: serena
+php:
+- 7.1
+- hhvm
+script: vendor/bin/phpunit
