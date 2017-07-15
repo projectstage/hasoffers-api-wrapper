@@ -1,6 +1,6 @@
 language: php
-dist: serena
 php:
-- 7.1
-- hhvm
-script: phpunit
+  - 7.1
+
+install:
+  - composer install --no-interaction
