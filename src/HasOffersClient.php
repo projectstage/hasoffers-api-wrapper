@@ -1,21 +1,22 @@
 <?php
 
-namespace HasOffersApi;
-
 /**
  * Created by PhpStorm.
  * User: carsten
  * Date: 7/6/17
  * Time: 12:55 PM
  */
+
+namespace HasOffersApi;
+
 use HasOffersApi\Exceptions\ApiKeyEmptyException;
 use HasOffersApi\Exceptions\NetworkIdEmptyException;
 
 /**
- * Class HasOffersApi
+ * Class HasOffersClient
  * @package HasoffersApiWrapper
  */
-class HasOffersApi
+class HasOffersClient
 {
 
     CONST NETWORK_TOKEN_PARAM_MAME = 'NetworkToken';
@@ -29,16 +30,6 @@ class HasOffersApi
 
     CONST MAX_LIMIT = 1250;
 
-
-    /**
-     * @var string
-     */
-    protected $network_id;
-
-    /**
-     * @var string
-     */
-    protected $api_key;
 
     /**
      * @var string
@@ -96,14 +87,15 @@ class HasOffersApi
     protected $limit = 10;
 
     /**
-     * @var string
-     */
-    protected $resources_folder_name = 'Resources';
-
-    /**
      * @var int
      */
     protected $page = 1;
+
+    /**
+     * @var string Name of the controller method you want to call - e.g. findAll
+     */
+    protected $method;
+
     /**
      * HasOffersApi constructor.
      * @param string $network_id
@@ -124,56 +116,15 @@ class HasOffersApi
         }
 
         // set the network id and create url API string
-        $this->setNetworkId($network_id);
-        $this->api_connect_url = $this->protocoll . '://' . $this->network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key;
+        $this->setApiConnectUrl($this->protocoll . '://' . $network_id . '.' . $this->api_url_part . '/' . $api_version . '/' . $response_type . '?' . self::NETWORK_TOKEN_PARAM_MAME . '=' . $api_key);
     }
+
+
 
     /**
      * @return string
      */
-    public function getResourcesPath()
-    {
-        return __DIR__.DIRECTORY_SEPARATOR.$this->resources_folder_name.DIRECTORY_SEPARATOR;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNetworkId(): string
-    {
-        return $this->network_id;
-    }
-
-    /**
-     * @param string $network_id
-     */
-    private function setNetworkId(string $network_id)
-    {
-        $this->network_id = $network_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getApiKey(): string
-    {
-        return $this->api_key;
-    }
-
-    /**
-     * @param string $api_key
-     * @return $this
-     */
-    public function setApiKey(string $api_key)
-    {
-        $this->api_key = $api_key;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getApiConnectUrl(): string
+    private function getApiConnectUrl(): string
     {
         return $this->api_connect_url;
     }
@@ -197,7 +148,7 @@ class HasOffersApi
     /**
      * @param string $api_connect_url
      */
-    public function setApiConnectUrl(string $api_connect_url)
+    private function setApiConnectUrl(string $api_connect_url)
     {
         $this->api_connect_url = $api_connect_url;
     }
@@ -250,6 +201,23 @@ class HasOffersApi
         }
     }
 
+    /**
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     * @return $this
+     */
+    private function setMethod(string $method)
+    {
+        $this->method = $method;
+        return $this;
+    }
 
     /**
      * @return array
