@@ -8,18 +8,18 @@
 
 namespace HasOffersApiTests;
 
-use HasOffersApi\HasOffersApi;
-use HasOffersApi\Offer;
+use HasOffersApi\HasOffersClient;
 use PHPUnit\Framework\TestCase;
 
 class OfferTest extends TestCase
 {
     public function testInitializer(): void
     {
-        $HasOfferApi = new HasOffersApi('troop','abjnrnu8c2n7yjgg9pb8wmjx5qzq785nxwss5n9rkxrs2cmge9ju7bv8awxpzj9p');
+        $HasOfferClient = new HasOffersClient('troop','abjnrnu8c2n7yjgg9pb8wmjx5qzq785nxwss5n9rkxrs2cmge9ju7bv8awxpzj9p');
 
-        $Offer = new Offer($HasOfferApi);
-        $list = $Offer->getFieldsList();
-        $this->assertObjectHasAttribute('expiration_date', $list);
+
+        $HasOfferClient->setLimit(22);
+        $limit = $HasOfferClient->getLimit();
+        $this->assertEquals('22', $limit);
     }
 }
