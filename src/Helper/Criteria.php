@@ -29,6 +29,14 @@ class Criteria
     CONST TRUE = 'TRUE';                                        // sample: &filters[is_private][TRUE]=1
     CONST FALSE = 'FALSE';                                      // sample: &filters[is_private][FALSE]=1
 
+    CONST EQUAL_TO = 'EQUAL_TO';
+    CONST BETWEEN = 'BETWEEN';
+
+
+    CONST PARAM_INDEX_FILTERS = 'filters';
+    CONST PARAM_INDEX_CONDITIONAL = 'conditional';
+    CONST PARAM_INDEX_CONDITIONAL_VALUES = 'values';
+
     /**
      * @var string
      */
@@ -144,14 +152,25 @@ class Criteria
      * @param $value
      * @param string $criteria
      * @return $this
+     * @throws \Exception
      */
     public function andFilter(string $column, $value, string $criteria = '')
     {
+        if($this->columnExists($column) === false) {
+            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
+        }
+
+        switch($criteria) {
+            case self::EQUAL_TO:
+            case self::BETWEEN:
+                return $this->addConditionalFilter($column, $value, $criteria);
+                break;
+        }
 
         if($criteria !== '') {
-            $this->criteria['filters'][$column][$criteria] = $value;
+            $this->criteria[self::PARAM_INDEX_FILTERS][$column][$criteria] = $value;
         } else {
-            $this->criteria['filters'][$column] = $value;
+            $this->criteria[self::PARAM_INDEX_FILTERS][$column] = $value;
         }
 
         return $this;
@@ -162,21 +181,78 @@ class Criteria
      * @param $value
      * @param string $criteria
      * @return $this
+     * @throws \Exception
      */
     public function orFilter(string $column, $value, string $criteria = '')
     {
+        if($this->columnExists($column) === false) {
+            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
+        }
+
+        switch($criteria) {
+            case self::EQUAL_TO:
+            case self::BETWEEN:
+                return $this->addConditionalFilter($column, $value, $criteria);
+                break;
+        }
 
         if($criteria !== '') {
-            $this->criteria['filters']['OR'][$column][$criteria] = $value;
+            $this->criteria[self::PARAM_INDEX_FILTERS][self::OR][$column][$criteria] = $value;
         } else {
-            $this->criteria['filters']['OR'][$column] = $value;
+            $this->criteria[self::PARAM_INDEX_FILTERS][self::OR][$column] = $value;
         }
 
         return $this;
     }
 
-    public function addConditionalFilter(string $column, $value1, $value2, string $criteria)
+    /**
+     * @param string $column
+     * @param $value
+     * @param string $criteria
+     * @return $this
+     * @throws \Exception
+     */
+    public function addConditionalFilter(string $column, $value, string $criteria)
     {
+        if($this->columnExists($column) === false) {
+            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
+        }
+
+        if(is_array($value) === false || count($value) < 1) {
+            throw new \Exception('You are using conditional filters. Therefore your $value parmater has to be an array with at least one entry.');
+        }
+
+        if($criteria === '') {
+            $criteria = self::EQUAL_TO;
+        }
+
+        if($criteria === self::BETWEEN && count($value) != 2) {
+            throw new \Exception('You are using conditional filters with scope "'.self::BETWEEN.'". Therefore your $value parmater has to be an array with two entries.');
+        }
+
+        $this->criteria[self::PARAM_INDEX_FILTERS][$column][self::PARAM_INDEX_CONDITIONAL] = $criteria;
+
+        // &filters[Offer.name][conditional]=LIKE&[Offer.name][values]=%gift card%
+        // &filters[Stat.date][conditional]=BETWEEN&filters[Stat.date][values][0]=2013-12-29&filters[Stat.date][values][1]=2014-01-03
+        // &filters[status][conditional]=EQUAL_TO&filters[status][values][0]=active&filters[status][values][1]=pending
+
+        // https://psflc.api.hasoffers.com/Apiv3/json?
+        //
+        // NetworkToken=abjnrnu8c2n7yjgg9pb8wmjx5qzq785nxwss5n9rkxrs2cmge9ju7bv8awxpzj9p&
+        //Target=Offer&
+        //Method=findAll&
+        //filters[id][GREATER_THAN_OR_EQUAL_TO]=2&
+        //filters[OR][advertiser_id][GREATER_THAN]=12&
+        //filters[create_date_utc][conditional]=BETWEEN&
+        //filters[create_date_utc][values][0]=2017-02-01&filters[create_date_utc][values][1]=2017-07-12&
+
+        //filters[create_date_utc][BETWEEN][0]=2017-02-01&filters[create_date_utc][BETWEEN][1]=2017-07-12&limit=22
+
+        foreach($value as $v) {
+            $this->criteria[self::PARAM_INDEX_FILTERS][$column][self::PARAM_INDEX_CONDITIONAL_VALUES][] = $v;
+        }
+
+        return $this;
 
     }
 
@@ -188,10 +264,34 @@ class Criteria
     {
         $model_list = $this->getModelColumns($this->current_target);
 
-        if(isset($model_list->{$this->current_target}->{$column}) === true) {
+        if(in_array($column, $model_list) === true) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentTarget(): string
+    {
+        return $this->current_target;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentMethod(): string
+    {
+        return $this->current_method;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCriteria(): array
+    {
+        return $this->criteria;
     }
 
     // curl https://troop.api.hasoffers.com/Apiv3/json?
@@ -203,4 +303,6 @@ class Criteria
     // sort[converted_offer_id]=desc&sort[allow_website_links]=desc&
     // limit=22&
     // contain[]=Goal
+
+
 }

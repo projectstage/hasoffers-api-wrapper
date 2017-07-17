@@ -1,4 +1,114 @@
 {
+  "AccountNote": {
+    "id": {"description":"","type":"","deprecated":false},
+    "type": {"description":"","type":"","deprecated":false},
+    "account_id": {"description":"","type":"","deprecated":false},
+    "note": {"description":"","type":"","deprecated":false},
+    "created": {"description":"","type":"","deprecated":false}
+  },
+  "AccountPreference": {
+    "id": {"description":"","type":"","deprecated":false},
+    "account_id": {"description":"","type":"","deprecated":false},
+    "name": {"description":"","type":"","deprecated":false},
+    "value": {"description":"","type":"","deprecated":false},
+    "type": {"description":"","type":"","deprecated":false}
+  },
+  "AdCampaign": {
+    "account_id": {"description":"","type":"","deprecated":false},
+    "affiliate_access": {"description":"","type":"","deprecated":false},
+    "custom_weights": {"description":"","type":"","deprecated":false},
+    "height": {"description":"","type":"","deprecated":false},
+    "id": {"description":"","type":"","deprecated":false},
+    "interface": {"description":"","type":"","deprecated":false},
+    "modified": {"description":"","type":"","deprecated":false},
+    "name": {"description":"","type":"","deprecated":false},
+    "optimization": {"description":"","type":"","deprecated":false},
+    "optimization_field": {"description":"","type":"","deprecated":false},
+    "status": {"description":"","type":"","deprecated":false},
+    "type": {"description":"","type":"","deprecated":false},
+    "width": {"description":"","type":"","deprecated":false}
+  },
+  "AdCampaignCreative": {
+    "ad_campaign_id": {"description":"","type":"","deprecated":false},
+    "custom_weight": {"description":"","type":"","deprecated":false},
+    "id": {"description":"","type":"","deprecated":false},
+    "modified": {"description":"","type":"","deprecated":false},
+    "offer_file_id": {"description":"","type":"","deprecated":false},
+    "offer_id": {"description":"","type":"","deprecated":false},
+    "offer_url_id": {"description":"","type":"","deprecated":false},
+    "status": {"description":"","type":"","deprecated":false}
+  },
+  "Advertiser": {
+    "account_manager_id": {"description":"","type":"","deprecated":false},
+    "address1": {"description":"","type":"","deprecated":false},
+    "address2": {"description":"","type":"","deprecated":false},
+    "city": {"description":"","type":"","deprecated":false},
+    "company": {"description":"","type":"","deprecated":false},
+    "conversion_security_token": {"description":"","type":"","deprecated":false},
+    "country": {"description":"","type":"","deprecated":false},
+    "date_added": {"description":"","type":"","deprecated":false},
+    "fax": {"description":"","type":"","deprecated":false},
+    "id": {"description":"","type":"","deprecated":false},
+    "modified": {"description":"","type":"","deprecated":false},
+    "phone": {"description":"","type":"","deprecated":false},
+    "ref_id": {"description":"","type":"","deprecated":false},
+    "region": {"description":"","type":"","deprecated":false},
+    "signup_ip": {"description":"","type":"","deprecated":false},
+    "status": {"description":"","type":"","deprecated":false},
+    "tmp_token": {"description":"","type":"","deprecated":false},
+    "zipcode": {"description":"","type":"","deprecated":false}
+  },
+  "AdvertiserAccountBalance": {
+    "advertiser_id": {"description":"","type":"","deprecated":false},
+    "balance": {"description":"","type":"","deprecated":false}
+  },
+  "": {
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false}
+  },
+  "": {
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false}
+  },
+  "": {
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false}
+  },
+  "": {
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false}
+  },  "": {
+  "": {"description":"","type":"","deprecated":false},
+  "": {"description":"","type":"","deprecated":false},
+  "": {"description":"","type":"","deprecated":false},
+  "": {"description":"","type":"","deprecated":false},
+  "": {"description":"","type":"","deprecated":false},
+  "": {"description":"","type":"","deprecated":false}
+  },
+  "": {
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false},
+    "": {"description":"","type":"","deprecated":false}
+  },
   "Offer": {
     "advertiser_id": {"description":"","type":"","deprecated":false},
     "allow_direct_links": {"description":"","type":"","deprecated":false},

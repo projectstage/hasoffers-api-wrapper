@@ -11,6 +11,7 @@ namespace HasOffersApi;
 
 use HasOffersApi\Exceptions\ApiKeyEmptyException;
 use HasOffersApi\Exceptions\NetworkIdEmptyException;
+use HasOffersApi\Helper\Criteria;
 
 /**
  * Class HasOffersClient
@@ -22,7 +23,6 @@ class HasOffersClient
     CONST NETWORK_TOKEN_PARAM_MAME = 'NetworkToken';
 
     CONST PARAM_INDEX_FIELDS = 'fields';
-    CONST PARAM_INDEX_FILTERS = 'filters';
     CONST PARAM_INDEX_SORT = 'sort';
     CONST PARAM_INDEX_LIMIT = 'limit';
     CONST PARAM_INDEX_PAGE = 'page';
@@ -62,39 +62,19 @@ class HasOffersClient
     protected $url_params = [];
 
     /**
-     * @var array
+     * @var int
      */
-    protected $fields = [];
-
-    /**
-     * @var array
-     */
-    protected $filters = [];
-
-    /**
-     * @var array
-     */
-    protected $contain = [];
-
-    /**
-     * @var array
-     */
-    protected $sort = [];
+    protected $standard_limit = 10;
 
     /**
      * @var int
      */
-    protected $limit = 10;
+    protected $standard_page = 1;
 
     /**
-     * @var int
+     * @var string
      */
-    protected $page = 1;
-
-    /**
-     * @var string Name of the controller method you want to call - e.g. findAll
-     */
-    protected $method;
+    protected $http_query_string = '';
 
     /**
      * HasOffersApi constructor.
@@ -162,11 +142,11 @@ class HasOffersClient
     }
 
     /**
-     * @param string $http_query_string
      * @return mixed
      */
-    public function callApi(string $http_query_string) {
-        return $this->curl($http_query_string);
+    public function callApi() {
+        $this->http_query_string = http_build_query($this->url_params);
+        return $this->curl($this->http_query_string);
     }
 
     /**
@@ -202,29 +182,11 @@ class HasOffersClient
     }
 
     /**
-     * @return string
-     */
-    public function getMethod(): string
-    {
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     * @return $this
-     */
-    private function setMethod(string $method)
-    {
-        $this->method = $method;
-        return $this;
-    }
-
-    /**
      * @return array
      */
     public function getFields(): array
     {
-        return $this->fields;
+        return $this->url_params[self::PARAM_INDEX_FIELDS];
     }
 
     /**
@@ -235,8 +197,8 @@ class HasOffersClient
     public function setFields(array $fields)
     {
         try {
-            $this->fields[self::PARAM_INDEX_FIELDS] = $fields[self::PARAM_INDEX_FIELDS];
-            $this->url_params = array_merge($this->url_params, $this->fields);
+            $field[self::PARAM_INDEX_FIELDS] = $fields;
+            $this->url_params = array_merge($this->url_params, $field);
             return $this;
         } catch(\Exception $e) {
             throw $e;
@@ -248,19 +210,20 @@ class HasOffersClient
      */
     public function getFilters(): array
     {
-        return $this->filters;
+        return $this->url_params[self::PARAM_INDEX_FILTERS];
     }
 
     /**
-     * @param array $filters
+     * @param Criteria $Criteria
      * @return $this
      * @throws \Exception
      */
-    public function setFilters(array $filters)
+    public function setFilters(Criteria $Criteria)
     {
         try {
-            $this->filters[self::PARAM_INDEX_FILTERS] = $filters[self::PARAM_INDEX_FILTERS];
-            $this->url_params = array_merge($this->url_params, $this->filters);
+            $criteria = $Criteria->getCriteria();
+            $filter = $criteria;
+            $this->url_params = array_merge($this->url_params, $filter);
             return $this;
         } catch(\Exception $e) {
             throw $e;
@@ -272,7 +235,7 @@ class HasOffersClient
      */
     public function getContain(): array
     {
-        return $this->contain;
+        return $this->url_params[self::PARAM_INDEX_CONTAIN];
     }
 
     /**
@@ -283,8 +246,8 @@ class HasOffersClient
     public function setContain(array $contain)
     {
         try {
-            $this->contain[self::PARAM_INDEX_CONTAIN] = $contain[self::PARAM_INDEX_CONTAIN];
-            $this->url_params = array_merge($this->url_params, $this->contain);
+            $contains[self::PARAM_INDEX_CONTAIN] = $contain;
+            $this->url_params = array_merge($this->url_params, $contains);
             return $this;
         } catch(\Exception $e) {
             throw $e;
@@ -296,7 +259,7 @@ class HasOffersClient
      */
     public function getSort(): array
     {
-        return $this->sort;
+        return $this->url_params[self::PARAM_INDEX_SORT];
     }
 
     /**
@@ -307,8 +270,8 @@ class HasOffersClient
     public function setSort(array $sort)
     {
         try {
-            $this->sort[self::PARAM_INDEX_SORT] = $sort[self::PARAM_INDEX_SORT];
-            $this->url_params = array_merge($this->url_params, $this->sort);
+            $sorting[self::PARAM_INDEX_SORT] = $sort;
+            $this->url_params = array_merge($this->url_params, $sorting);
             return $this;
         } catch(\Exception $e) {
             throw $e;
@@ -320,7 +283,7 @@ class HasOffersClient
      */
     public function getLimit(): int
     {
-        return $this->limit;
+        return $this->url_params[self::PARAM_INDEX_LIMIT];
     }
 
     /**
@@ -329,12 +292,16 @@ class HasOffersClient
      */
     public function setLimit(int $limit)
     {
+        if($limit < 1) {
+            $limit = $this->standard_limit;
+        }
+
         if($limit > self::MAX_LIMIT) {
             $limit = self::MAX_LIMIT;
         }
 
-        $this->limit = $limit;
-        $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_LIMIT => $this->limit]);
+        $limiter[self::PARAM_INDEX_LIMIT] = $limit;
+        $this->url_params = array_merge($this->url_params, $limiter);
         return $this;
     }
 
@@ -343,7 +310,7 @@ class HasOffersClient
      */
     public function getPage(): int
     {
-        return $this->page;
+        return $this->url_params[self::PARAM_INDEX_PAGE];
     }
 
     /**
@@ -352,8 +319,12 @@ class HasOffersClient
      */
     public function setPage(int $page)
     {
-        $this->page = $page;
-        $this->url_params = array_merge($this->url_params, [self::PARAM_INDEX_PAGE => $this->page]);
+        if($page < 0) {
+            $page = $this->standard_page;
+        }
+
+        $pager[self::PARAM_INDEX_PAGE] = $page;
+        $this->url_params = array_merge($this->url_params, $pager);
         return $this;
     }
 
