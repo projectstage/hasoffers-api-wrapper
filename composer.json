@@ -12,7 +12,8 @@
   "require": {
     "php": ">=7.1.0",
     "ext-curl": "*",
-    "phpunit/phpunit": "^6.3@dev"
+    "phpunit/phpunit": "^6.3@dev",
+    "phpunit/php-code-coverage": "*"
   },
   "autoload": {
     "psr-4": {
