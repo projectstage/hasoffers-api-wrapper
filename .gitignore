@@ -2,5 +2,6 @@
 .idea/
 doc/
 vendor/
+__criterias_test.patch
 composer.lock
 run.php
