@@ -71,9 +71,10 @@ class Criteria
      * Criteria constructor.
      * @param string $target
      * @param string $method
+     * @param array $params
      * @throws \Exception
      */
-    public function __construct(string $target, string $method)
+    public function __construct(string $target, string $method, array $params = [])
     {
         $target_list = $this->getTargets();
 
@@ -89,7 +90,11 @@ class Criteria
                 $this->current_target = $target;
                 $this->current_method = $method;
 
-                $this->columnExists('id');
+                if(count($params) > 0){
+                    foreach($params as $key => $value) {
+                        $this->criteria[$key] = $value;
+                    }
+                }
 
             } else {
                 throw new \Exception('Method "'.$method.'" not found.');
@@ -156,10 +161,6 @@ class Criteria
      */
     public function andFilter(string $column, $value, string $criteria = '')
     {
-        if($this->columnExists($column) === false) {
-            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
-        }
-
         switch($criteria) {
             case self::EQUAL_TO:
             case self::BETWEEN:
@@ -185,10 +186,6 @@ class Criteria
      */
     public function orFilter(string $column, $value, string $criteria = '')
     {
-        if($this->columnExists($column) === false) {
-            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
-        }
-
         switch($criteria) {
             case self::EQUAL_TO:
             case self::BETWEEN:
@@ -214,10 +211,6 @@ class Criteria
      */
     public function addConditionalFilter(string $column, $value, string $criteria)
     {
-        if($this->columnExists($column) === false) {
-            throw new \Exception('Column "'.$column.'" in '.$this->current_target.'->'.$this->current_method.'->'.$column.' does not exists.');
-        }
-
         if(is_array($value) === false || count($value) < 1) {
             throw new \Exception('You are using conditional filters. Therefore your $value parmater has to be an array with at least one entry.');
         }
@@ -254,20 +247,6 @@ class Criteria
 
         return $this;
 
-    }
-
-    /**
-     * @param $column
-     * @return bool
-     */
-    private function columnExists($column)
-    {
-        $model_list = $this->getModelColumns($this->current_target);
-
-        if(in_array($column, $model_list) === true) {
-            return true;
-        }
-        return false;
     }
 
     /**
