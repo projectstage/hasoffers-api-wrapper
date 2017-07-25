@@ -10,991 +10,308 @@ namespace HasOffersApi\Mappings;
 
 class Offer
 {
-    /**
-     * 	ID of Advertiser object associated to offer (if any)
-     * @var integer
-     */
-    protected $advertiser_id;
-
-    /**
-     * "Direct Links" setting in Offer Tracking Settings
-     * @var boolean
-     */
-    protected $allow_direct_links;
-
-    /**
-     * Boolean	"Multiple Conversions" setting in Offer Tracking Settings.
-     * @var boolean
-     */
-    protected $allow_multiple_conversions;
-
-    /**
-     * Boolean	"Deep Links" setting in Offer Tracking Settings
-     * @var boolean
-     */
-    protected $allow_website_links;
-
-
-    /**
-     * Approve Conversions setting in Offer Tracking Settings. A null value is treated as false.
-     * @var boolean
-     */
-    protected $approve_conversions;
-
-    /**
-     * "Click Macro URL" setting in Offer Tracking Settings. Applicable if disable_click_macro is set to false.
-     * @var string
-     */
-    protected $click_macro_url;
-
-    /**
-     * "Daily Conversions" cap setting in Offer Settings. A value of 0 means there is no general daily conversion cap for offer.
-     * @var integer
-     */
-    protected $conversion_cap;
-
-    /**
-     * @deprecated
-     * @var integer
-     */
-    protected $conversion_ratio_threshold;
-
-    /**
-     * ID of Offer object for "Secondary Offer" setting in Offer Tracking Settings. Applicable only if converted_offer_type is set to "network".
-     * @var integer
-     */
-    protected $converted_offer_id;
-
-    /**
-     * Core "Secondary Offer" setting in Offer Tracking Settings. Applicable if "Redirect Offers" network-wide offer setting
-     * is enabled and "SEO Friendly Links" network-wide offer setting is disabled.
-     * @var string
-     */
-    protected $converted_offer_type;
-
-    /**
-     * Custom URL value for "Secondary Offer" setting in Offer Tracking Settings. Applicable only if converted_offer_type is set to "url".
-     * @var string
-     */
-    protected $converted_offer_url;
-
-    /**
-     * Date the offer was created This parameter is non-writable
-     * @var \Datetime
-     */
-    protected $create_date_utc;
-
-    /**
-     * "Offer Currency" value in Offer Payout Settings, corresponding to three-character code as listed in Using Multiple Currencies. If set to null, offer uses "Currency" network-wide
-     * application setting. Returns error if attempting to set field to any other code. Available only if "Multiple Currencies" network-wide application setting is enabled.
-     * @var string
-     */
-    protected $currency;
-
-    /**
-     * ID of CustomerList object associated with offer (if any)
-     * @var integer
-     */
-    protected $customer_list_id;
-
-    /**
-     * Name of default goal (Goal.name). Applicable only if has_goals_enabled is set to true.
-     * @var string
-     */
-    protected $default_goal_name;
-
-    /**
-     * Flat payout amount for offer. Applicable only if payout_type is or includes a flat-amount type: "cpa_flat", "cpa_both", "cpc", or "cpm".
-     * @var float
-     */
-    protected $default_payout;
-
-    /**
-     * Offer's description text/HTML
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * "Click Macro" setting in Offer Tracking Settings. Is true if setting is set to "Disabled", false if set to "Enabled". Applicable if "Global Click Macro" network-wide tracking setting is enabled.
-     * @var boolean
-     */
-    protected $disable_click_macro;
-
-    /**
-     * "Display Advertiser" setting in Offer Settings Applicable if "Display Advertiser" network-wide offer setting is enabled.
-     * @var boolean
-     */
+    protected $id;
     protected $display_advertiser;
-
-    /**
-     * Contents of Download URL entry in suppression list associated to offer, as referred to in dne_list_id (if any).Cannot write to this field. Use DneList controller to manipulate related DneList object.
-     * @var string
-     */
-    protected $dne_download_url;
-
-    /**
-     * ID of DneList object associated to offer (if any). Applicable only if show_mail_list is set to true.
-     * @var integer
-     */
+    protected $advertiser_id;
+    protected $name;
+    protected $description;
+    protected $require_approval;
+    protected $require_terms_and_conditions;
+    protected $terms_and_conditions;
+    protected $preview_url;
+    protected $offer_url;
+    protected $currency;
+    protected $default_payout;
+    protected $max_payout;
+    protected $protocol;
+    protected $status;
+    protected $expiration_date;
+    protected $is_private;
+    protected $payout_type;
+    protected $tiered_payout;
+    protected $tiered_revenue;
+    protected $percent_payout;
+    protected $revenue_type;
+    protected $max_percent_payout;
+    protected $redirect_offer_id;
+    protected $converted_offer_type;
+    protected $converted_offer_id;
+    protected $converted_offer_url;
+    protected $conversion_ratio_threshold;
+    protected $featured;
+    protected $is_subscription;
+    protected $subscription_duration;
+    protected $subscription_frequency;
+    protected $customer_list_id;
+    protected $ref_id;
+    protected $rating;
+    protected $disable_click_macro;
+    protected $click_macro_url;
+    protected $conversion_cap;
+    protected $monthly_conversion_cap;
+    protected $payout_cap;
+    protected $monthly_payout_cap;
+    protected $revenue_cap;
+    protected $monthly_revenue_cap;
+    protected $target_browsers;
+    protected $approve_conversions;
+    protected $allow_multiple_conversions;
+    protected $allow_website_links;
+    protected $allow_direct_links;
+    protected $show_custom_variables;
+    protected $session_hours;
+    protected $session_impression_hours;
+    protected $set_session_on_impression;
+    protected $is_seo_friendly_301;
+    protected $show_mail_list;
     protected $dne_list_id;
-
-    /**
-     * Flag indicating if the offer uses a third-party DNE list.
-     * @var boolean
-     */
+    protected $email_instructions;
+    protected $email_instructions_from;
+    protected $email_instructions_subject;
+    protected $enforce_geo_targeting;
+    protected $enforce_secure_tracking_link;
+    protected $hostname_id;
+    protected $has_goals_enabled;
+    protected $default_goal_name;
+    protected $enforce_encrypt_tracking_pixels;
+    protected $modified;
+    protected $enable_offer_whitelist;
+    protected $note;
+    protected $use_target_rules;
+    protected $use_payout_groups;
+    protected $use_revenue_groups;
+    protected $website_links_copy_static_params;
+    protected $create_date_utc;
+    protected $lifetime_revenue_cap;
+    protected $lifetime_conversion_cap;
+    protected $lifetime_payout_cap;
+    protected $is_expired;
+    protected $dne_download_url;
+    protected $dne_unsubscribe_url;
     protected $dne_third_party_list;
 
     /**
-     * "Contents of Unsubscrube URL" entry in suppression list associated to offer, as referred to in dne_list_id (if any).
-     * @var string
+     * @param mixed $id
      */
-    protected $dne_unsubscribe_ur;
-
-    /**
-     * "Email Instructions" setting in Offer Settings. Must be set to true for related fields to apply.
-     * @var boolean
-     */
-    protected $email_instructions;
-
-    /**
-     * "Contents of Approved From Lines" entry in offer's Suppression Lists settings. Use line breaks to separate multiple entries. Applicable if the "email_instructions" field is set to true.
-     * @var string
-     */
-    protected $email_instructions_from;
-
-    /**
-     * "Contents of Approved Subject Lines" entry in offer's Suppression Lists settings. Use line breaks to separate multiple entries. Applicable if the "email_instructions" field is set to true.
-     * @var string
-     */
-    protected $email_instructions_subject;
-
-    /**
-     * "Offer Whitelist" setting in Offer Tracking Settings
-     * @var boolean
-     */
-    protected $enable_offer_whitelist;
-
-    /**
-     * "Encrypted Conversion Tracking" setting in Offer Tracking Settings. Applicable if "Encrypt Conversion URLs" network-wide tracking setting is enabled.
-     * @var boolean
-     */
-    protected $enforce_encrypt_tracking_pixels;
-
-    /**
-     * "Enforce Geo-Targeting" setting in Offer Targeting. Must be set to true for related fields to apply.
-     * @var boolean
-     */
-    protected $enforce_geo_targeting;
-
-    /**
-     * Enforce SSL by generating all affiliate tracking links and impression pixels with https instead of http
-     * @var boolean
-     */
-    protected $enforce_secure_tracking_link;
-
-    /**
-     * Offer's expiration date
-     * @var \DateTime
-     */
-    protected $expiration_date;
-
-    /**
-     * Date offer was selected as a featured offer (available at the network Snapshot page). If this is set to null or "0000-00-00 00:00:00", offer is not selected as a featured offer.
-     * @var |DateTime
-     */
-    protected $featured;
-
-    /**
-     * "Multiple Conversion Goals" setting in Offer Payout. Must be set to true for related fields to apply.
-     * @var boolean
-     */
-    protected $has_goals_enabled;
-
-    /**
-     * ID of Hostname object associated to offer (if any), for use with custom tracking domains.
-     * @var integer
-     */
-    protected $hostname_id;
-
-    /**
-     * This object's ID, automatically generated upon creation.
-     * @var integer
-     */
-    protected $id;
-
-    /**
-     * Flag indicating if offer has expired—if the current date is past the value in expiration_date
-     * @var boolean
-     */
-    protected $is_expired;
-
-    /**
-     * "Private" setting in Offer Settings
-     * @var boolean
-     */
-    protected $is_private;
-
-    /**
-     * "SEO-Friendly Links" setting in Offer Settings Applicable if "SEO-Friendly Links" network-wide offer setting is enabled.
-     * @var boolean
-     */
-    protected $is_seo_friendly_301;
-
-    /**
-     * "Subscription" setting in Offer Tracking Settings
-     * @var boolean
-     */
-    protected $is_subscription;
-
-    /**
-     * "Lifetime Conversions" cap setting in Offer Settings. A value of 0 means there is no general lifetime conversion cap for offer.
-     * @var mixed
-     */
-    protected $lifetime_conversion_cap;
-
-    /**
-     * "Lifetime Payout" cap setting in Offer Settings. A value of 0 means there is no general lifetime payout cap for offer.
-     * @var mixed
-     */
-    protected $lifetime_payout_cap;
-
-    /**
-     * "Lifetime Reveune" cap setting in Offer Settings. A value of 0 means there is no general lifetime payout cap for offer.
-     * @var mixed
-     */
-    protected $lifetime_revenue_cap;
-
-    /**
-     * Flat revenue amount for offer. Applicable only if revenue_type is or includes a flat-amount type: "cpa_flat", "cpa_both", "cpc", or "cpm".
-     * @var float
-     */
-    protected $max_payout;
-
-    /**
-     * Percentage of sale revenue for offer. Applicable only if revenue_type is or includes a percentage type: "cpa_percentage" or "cpa_both".
-     * @var float
-     */
-    protected $max_percent_payout;
-
-    /**
-     * Datetime of most recent change to object
-     * @var \Datetime
-     */
-    protected $modified;
-
-    /**
-     * "Monthly Conversions" cap setting in Offer Settings. A value of 0 means there is no general monthly conversion cap for offer.
-     * @var integer
-     */
-    protected $monthly_conversion_cap;
-
-    /**
-     * "Monthly Payout" cap setting in Offer Settings. A value of 0 means there is no general monthly payout cap for offer.
-     * @var float
-     */
-    protected $monthly_payout_cap;
-
-    /**
-     * "Monthly Revenue" cap setting in Offer Settings. A value of 0 means there is no general monthly revenue cap for offer.
-     * @var float
-     */
-    protected $monthly_revenue_cap;
-
-    /**
-     * Offer's display name
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * Default offer URL/landing page offer redirects traffic to.
-     * @var string
-     */
-    protected $offer_url;
-
-    /**
-     * "Daily Payout" cap setting in Offer Settings. A value of 0 means there is no general daily payout cap for offer.
-     * @var float
-     */
-    protected $payout_cap;
-
-    /**
-     * Offer's payout type, as described in Offer Payouts.
-     * Values of "cpa_flat", "cpm", and "cpc" indicate a flat payout amount, which is specified in the default_payout field.
-     * Value of "cpa_percentage" indicates payout is a percentage of sale, which is specified in the percent_payout field.
-     * Value of "cpa_both" indicates both a flat payout amount and a percentage of sale payout.
-     *
-     * @var string
-     */
-    protected $payout_type;
-    /**
-     * Percentage of sale payout for offer. Applicable only if payout_type is or includes a percentage type: "cpa_percentage" or "cpa_both".
-     * @var float
-     */
-    protected $percent_payout;
-
-    /**
-     * URL used to preview page offer redirects to.
-     * @var string
-     */
-    protected $preview_url;
-
-    /**
-     * Conversion tracking protocol to use for offer.
-     * @var string
-     */
-    protected $protocol;
-
-    /**
-     * Offer's rating as displayed to affiliate and network users, ranked from 1 to 5. This field is active if the network has the Offer Ratings setting enabled.
-     * @var integer
-     */
-    protected $rating;
-
-    /**
-     * ID of Offer object for "Redirect Offer" setting in Offer Tracking Settings.
-     * @var integer
-     */
-    protected $redirect_offer_id;
-
-    /**
-     * "Reference ID" setting in Offer Details
-     * @var string
-     */
-    protected $ref_id;
-
-    /**
-     * "Require Approval" setting in Offer Settings
-     * @var boolean
-     */
-    protected $require_approval;
-
-    /**
-     * "Terms and Conditions" setting in Offer Settings
-     * @var string
-     */
-    protected $require_terms_and_conditions;
-
-    /**
-     * "Daily Revenue" cap setting in Offer Settings. A value of 0 means there is no general daily revenue cap for offer.
-     * @var float
-     */
-    protected $revenue_cap;
-
-    /**
-     * Offer's revenue type, as described in Offer Payouts.
-     * Values of "cpa_flat", "cpm", and "cpc" indicate a flat revenue amount, which is specified in the max_payout field.
-     * Value of "cpa_percentage" indicates revenue is a percentage of sale, which is specified in the max_percent_payout field.
-     * Value of "cpa_both" indicates both a flat revenue amount and a percentage of sale revenue.
-     * Note: Values are same as in payout_type for unity, rather than using "rpa_flat" etc.
-     * Show Supported Values
-     * @var string
-     */
-    protected $revenue_type;
-
-    /**
-     * "Click Session Lifespan" setting in Offer Tracking Settings, in hours.
-     * @var integer
-     */
-    protected $session_hours;
-
-    /**
-     * "Impression Session Lifespan" setting in Offer Tracking Settings, in hours. Applicable only if set_session_on_impression is set to true.
-     * @var integer
-     */
-    protected $session_impression_hours;
-
-    /**
-     * "Start Session Tracking" setting in Offer Tracking Settings; true is selection is for impressions, false if for clicks.
-     * Applicable only if protocol is set to a pixel-based value, otherwise defaults to false.
-     * @var boolean
-     */
-    protected $set_session_on_impression;
-
-    /**
-     * "Custom Variables" setting in Offer Tracking Settings.
-     * @var boolean
-     */
-    protected $show_custom_variables;
-
-    /**
-     * "Suppression List" setting in Offer Settings.
-     * @var boolean
-     */
-    protected $show_mail_list;
-
-    /**
-     * Offer's status
-     * @var string
-     */
-    protected $status;
-
-    /**
-     * "Subscription Duration" setting in Offer Tracking Settings, in seconds. A value of 0 means the duration is indefinite.
-     * @var integer
-     */
-    protected $subscription_duration;
-
-    /**
-     * "Subscription Frequency" setting in Offer Tracking Settings.
-     * @var string
-     */
-    protected $subscription_frequency;
-
-    /**
-     * "Require Approval" setting in Offer Settings
-     * @deprecated
-     * @var integer
-     */
-    protected $target_browsers;
-
-    /**
-     * Offer's terms and conditions text/HTML as shown in Offer Settings. Should contain non-empty value if require_terms_and_conditions is true.
-     * @var string
-     */
-    protected $terms_and_conditions;
-
-    /**
-     * Relates to "Payout Method" setting in Offer Payout Settings. Is true if setting is set to "Tiered", false otherwise. Cannot be set to true if use_payout_groups is also true.
-     * @var boolean
-     */
-    protected $tiered_payout;
-
-    /**
-     * Relates to "Revenue Method" setting in Offer Payout Settings. Is true if setting is set to "Tiered", false otherwise. Cannot be set to true if use_revenue_groups is also true.
-     * @var boolean
-     */
-    protected $tiered_revenue;
-
-    /**
-     * Relates to "Payout Method" setting in Offer Payout Settings. Is true if setting is set to "Groups", false otherwise. Cannot be set to true if tiered_payout is also true.
-     * @var boolean
-     */
-    protected $use_payout_groups;
-
-    /**
-     * Relates to "Revenue Method" setting in Offer Payout Settings. Is true if setting is set to "Groups", false otherwise. Cannot be set to true if tiered_revenue is also true.
-     * @var boolean
-     */
-    protected $use_revenue_groups;
-
-    /**
-     * "Advanced Targeting" setting in Offer Targeting. Set to true if "Show the offer to targeted devices" is selected.
-     * @var boolean
-     */
-    protected $use_target_rules;
-
-    /**
-     * "Copy Static Parameters to Deep Links" setting in Offer Tracking Settings. Applicable only if allow_website_links is true.
-     * @var boolean
-     */
-    protected $website_links_copy_static_params;
-
-    /**
-     * @return int
-     */
-    public function getAdvertiserId(): int
+    public function setId($id)
     {
-        return $this->advertiser_id;
+        $this->id = $id;
     }
 
     /**
-     * @param int $advertiser_id
+     * @param mixed $display_advertiser
      */
-    public function setAdvertiserId(int $advertiser_id)
-    {
-        $this->advertiser_id = $advertiser_id;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAllowDirectLinks(): bool
-    {
-        return $this->allow_direct_links;
-    }
-
-    /**
-     * @param bool $allow_direct_links
-     */
-    public function setAllowDirectLinks(bool $allow_direct_links)
-    {
-        $this->allow_direct_links = $allow_direct_links;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAllowMultipleConversions(): bool
-    {
-        return $this->allow_multiple_conversions;
-    }
-
-    /**
-     * @param bool $allow_multiple_conversions
-     */
-    public function setAllowMultipleConversions(bool $allow_multiple_conversions)
-    {
-        $this->allow_multiple_conversions = $allow_multiple_conversions;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAllowWebsiteLinks(): bool
-    {
-        return $this->allow_website_links;
-    }
-
-    /**
-     * @param bool $allow_website_links
-     */
-    public function setAllowWebsiteLinks(bool $allow_website_links)
-    {
-        $this->allow_website_links = $allow_website_links;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isApproveConversions(): bool
-    {
-        return $this->approve_conversions;
-    }
-
-    /**
-     * @param bool $approve_conversions
-     */
-    public function setApproveConversions(bool $approve_conversions)
-    {
-        $this->approve_conversions = $approve_conversions;
-    }
-
-    /**
-     * @return string
-     */
-    public function getClickMacroUrl(): string
-    {
-        return $this->click_macro_url;
-    }
-
-    /**
-     * @param string $click_macro_url
-     */
-    public function setClickMacroUrl(string $click_macro_url)
-    {
-        $this->click_macro_url = $click_macro_url;
-    }
-
-    /**
-     * @return int
-     */
-    public function getConversionCap(): int
-    {
-        return $this->conversion_cap;
-    }
-
-    /**
-     * @param int $conversion_cap
-     */
-    public function setConversionCap(int $conversion_cap)
-    {
-        $this->conversion_cap = $conversion_cap;
-    }
-
-    /**
-     * @deprecated
-     * @return int
-     */
-    public function getConversionRatioThreshold(): int
-    {
-        return $this->conversion_ratio_threshold;
-    }
-
-    /**
-     * @deprecated
-     * @param int $conversion_ratio_threshold
-     */
-    public function setConversionRatioThreshold(int $conversion_ratio_threshold)
-    {
-        $this->conversion_ratio_threshold = $conversion_ratio_threshold;
-    }
-
-    /**
-     * @return int
-     */
-    public function getConvertedOfferId(): int
-    {
-        return $this->converted_offer_id;
-    }
-
-    /**
-     * @param int $converted_offer_id
-     */
-    public function setConvertedOfferId(int $converted_offer_id)
-    {
-        $this->converted_offer_id = $converted_offer_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConvertedOfferType(): string
-    {
-        return $this->converted_offer_type;
-    }
-
-    /**
-     * @param string $converted_offer_type
-     */
-    public function setConvertedOfferType(string $converted_offer_type)
-    {
-        $this->converted_offer_type = $converted_offer_type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConvertedOfferUrl(): string
-    {
-        return $this->converted_offer_url;
-    }
-
-    /**
-     * @param string $converted_offer_url
-     */
-    public function setConvertedOfferUrl(string $converted_offer_url)
-    {
-        $this->converted_offer_url = $converted_offer_url;
-    }
-
-    /**
-     * @return \Datetime
-     */
-    public function getCreateDateUtc(): \Datetime
-    {
-        return $this->create_date_utc;
-    }
-
-    /**
-     * @param \Datetime $create_date_utc
-     */
-    public function setCreateDateUtc(\Datetime $create_date_utc)
-    {
-        $this->create_date_utc = $create_date_utc;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCurrency(): string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @param string $currency
-     */
-    public function setCurrency(string $currency)
-    {
-        $this->currency = $currency;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCustomerListId(): int
-    {
-        return $this->customer_list_id;
-    }
-
-    /**
-     * @param int $customer_list_id
-     */
-    public function setCustomerListId(int $customer_list_id)
-    {
-        $this->customer_list_id = $customer_list_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDefaultGoalName(): string
-    {
-        return $this->default_goal_name;
-    }
-
-    /**
-     * @param string $default_goal_name
-     */
-    public function setDefaultGoalName(string $default_goal_name)
-    {
-        $this->default_goal_name = $default_goal_name;
-    }
-
-    /**
-     * @return float
-     */
-    public function getDefaultPayout(): float
-    {
-        return $this->default_payout;
-    }
-
-    /**
-     * @param float $default_payout
-     */
-    public function setDefaultPayout(float $default_payout)
-    {
-        $this->default_payout = $default_payout;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDisableClickMacro(): bool
-    {
-        return $this->disable_click_macro;
-    }
-
-    /**
-     * @param bool $disable_click_macro
-     */
-    public function setDisableClickMacro(bool $disable_click_macro)
-    {
-        $this->disable_click_macro = $disable_click_macro;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDisplayAdvertiser(): bool
-    {
-        return $this->display_advertiser;
-    }
-
-    /**
-     * @param bool $display_advertiser
-     */
-    public function setDisplayAdvertiser(bool $display_advertiser)
+    public function setDisplayAdvertiser($display_advertiser)
     {
         $this->display_advertiser = $display_advertiser;
     }
 
     /**
-     * @return string
+     * @param mixed $advertiser_id
      */
-    public function getDneDownloadUrl(): string
+    public function setAdvertiserId($advertiser_id)
     {
-        return $this->dne_download_url;
+        $this->advertiser_id = $advertiser_id;
     }
 
     /**
-     * @param string $dne_download_url
+     * @param mixed $name
      */
-    public function setDneDownloadUrl(string $dne_download_url)
+    public function setName($name)
     {
-        $this->dne_download_url = $dne_download_url;
+        $this->name = $name;
     }
 
     /**
-     * @return int
+     * @param mixed $description
      */
-    public function getDneListId(): int
+    public function setDescription($description)
     {
-        return $this->dne_list_id;
+        $this->description = $description;
     }
 
     /**
-     * @param int $dne_list_id
+     * @param mixed $require_approval
      */
-    public function setDneListId(int $dne_list_id)
+    public function setRequireApproval($require_approval)
     {
-        $this->dne_list_id = $dne_list_id;
+        $this->require_approval = $require_approval;
     }
 
     /**
-     * @return bool
+     * @param mixed $require_terms_and_conditions
      */
-    public function isDneThirdPartyList(): bool
+    public function setRequireTermsAndConditions($require_terms_and_conditions)
     {
-        return $this->dne_third_party_list;
+        $this->require_terms_and_conditions = $require_terms_and_conditions;
     }
 
     /**
-     * @param bool $dne_third_party_list
+     * @param mixed $terms_and_conditions
      */
-    public function setDneThirdPartyList(bool $dne_third_party_list)
+    public function setTermsAndConditions($terms_and_conditions)
     {
-        $this->dne_third_party_list = $dne_third_party_list;
+        $this->terms_and_conditions = $terms_and_conditions;
     }
 
     /**
-     * @return string
+     * @param mixed $preview_url
      */
-    public function getDneUnsubscribeUr(): string
+    public function setPreviewUrl($preview_url)
     {
-        return $this->dne_unsubscribe_ur;
+        $this->preview_url = $preview_url;
     }
 
     /**
-     * @param string $dne_unsubscribe_ur
+     * @param mixed $offer_url
      */
-    public function setDneUnsubscribeUr(string $dne_unsubscribe_ur)
+    public function setOfferUrl($offer_url)
     {
-        $this->dne_unsubscribe_ur = $dne_unsubscribe_ur;
+        $this->offer_url = $offer_url;
     }
 
     /**
-     * @return bool
+     * @param mixed $currency
      */
-    public function isEmailInstructions(): bool
+    public function setCurrency($currency)
     {
-        return $this->email_instructions;
+        $this->currency = $currency;
     }
 
     /**
-     * @param bool $email_instructions
+     * @param mixed $default_payout
      */
-    public function setEmailInstructions(bool $email_instructions)
+    public function setDefaultPayout($default_payout)
     {
-        $this->email_instructions = $email_instructions;
+        $this->default_payout = $default_payout;
     }
 
     /**
-     * @return string
+     * @param mixed $max_payout
      */
-    public function getEmailInstructionsFrom(): string
+    public function setMaxPayout($max_payout)
     {
-        return $this->email_instructions_from;
+        $this->max_payout = $max_payout;
     }
 
     /**
-     * @param string $email_instructions_from
+     * @param mixed $protocol
      */
-    public function setEmailInstructionsFrom(string $email_instructions_from)
+    public function setProtocol($protocol)
     {
-        $this->email_instructions_from = $email_instructions_from;
+        $this->protocol = $protocol;
     }
 
     /**
-     * @return string
+     * @param mixed $status
      */
-    public function getEmailInstructionsSubject(): string
+    public function setStatus($status)
     {
-        return $this->email_instructions_subject;
+        $this->status = $status;
     }
 
     /**
-     * @param string $email_instructions_subject
+     * @param mixed $expiration_date
      */
-    public function setEmailInstructionsSubject(string $email_instructions_subject)
-    {
-        $this->email_instructions_subject = $email_instructions_subject;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnableOfferWhitelist(): bool
-    {
-        return $this->enable_offer_whitelist;
-    }
-
-    /**
-     * @param bool $enable_offer_whitelist
-     */
-    public function setEnableOfferWhitelist(bool $enable_offer_whitelist)
-    {
-        $this->enable_offer_whitelist = $enable_offer_whitelist;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnforceEncryptTrackingPixels(): bool
-    {
-        return $this->enforce_encrypt_tracking_pixels;
-    }
-
-    /**
-     * @param bool $enforce_encrypt_tracking_pixels
-     */
-    public function setEnforceEncryptTrackingPixels(bool $enforce_encrypt_tracking_pixels)
-    {
-        $this->enforce_encrypt_tracking_pixels = $enforce_encrypt_tracking_pixels;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnforceGeoTargeting(): bool
-    {
-        return $this->enforce_geo_targeting;
-    }
-
-    /**
-     * @param bool $enforce_geo_targeting
-     */
-    public function setEnforceGeoTargeting(bool $enforce_geo_targeting)
-    {
-        $this->enforce_geo_targeting = $enforce_geo_targeting;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnforceSecureTrackingLink(): bool
-    {
-        return $this->enforce_secure_tracking_link;
-    }
-
-    /**
-     * @param bool $enforce_secure_tracking_link
-     */
-    public function setEnforceSecureTrackingLink(bool $enforce_secure_tracking_link)
-    {
-        $this->enforce_secure_tracking_link = $enforce_secure_tracking_link;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getExpirationDate(): \DateTime
-    {
-        return $this->expiration_date;
-    }
-
-    /**
-     * @param \DateTime $expiration_date
-     */
-    public function setExpirationDate(\DateTime $expiration_date)
+    public function setExpirationDate($expiration_date)
     {
         $this->expiration_date = $expiration_date;
     }
 
     /**
-     * @return mixed
+     * @param mixed $is_private
      */
-    public function getFeatured()
+    public function setIsPrivate($is_private)
     {
-        return $this->featured;
+        $this->is_private = $is_private;
+    }
+
+    /**
+     * @param mixed $payout_type
+     */
+    public function setPayoutType($payout_type)
+    {
+        $this->payout_type = $payout_type;
+    }
+
+    /**
+     * @param mixed $tiered_payout
+     */
+    public function setTieredPayout($tiered_payout)
+    {
+        $this->tiered_payout = $tiered_payout;
+    }
+
+    /**
+     * @param mixed $tiered_revenue
+     */
+    public function setTieredRevenue($tiered_revenue)
+    {
+        $this->tiered_revenue = $tiered_revenue;
+    }
+
+    /**
+     * @param mixed $percent_payout
+     */
+    public function setPercentPayout($percent_payout)
+    {
+        $this->percent_payout = $percent_payout;
+    }
+
+    /**
+     * @param mixed $revenue_type
+     */
+    public function setRevenueType($revenue_type)
+    {
+        $this->revenue_type = $revenue_type;
+    }
+
+    /**
+     * @param mixed $max_percent_payout
+     */
+    public function setMaxPercentPayout($max_percent_payout)
+    {
+        $this->max_percent_payout = $max_percent_payout;
+    }
+
+    /**
+     * @param mixed $redirect_offer_id
+     */
+    public function setRedirectOfferId($redirect_offer_id)
+    {
+        $this->redirect_offer_id = $redirect_offer_id;
+    }
+
+    /**
+     * @param mixed $converted_offer_type
+     */
+    public function setConvertedOfferType($converted_offer_type)
+    {
+        $this->converted_offer_type = $converted_offer_type;
+    }
+
+    /**
+     * @param mixed $converted_offer_id
+     */
+    public function setConvertedOfferId($converted_offer_id)
+    {
+        $this->converted_offer_id = $converted_offer_id;
+    }
+
+    /**
+     * @param mixed $converted_offer_url
+     */
+    public function setConvertedOfferUrl($converted_offer_url)
+    {
+        $this->converted_offer_url = $converted_offer_url;
+    }
+
+    /**
+     * @param mixed $conversion_ratio_threshold
+     */
+    public function setConversionRatioThreshold($conversion_ratio_threshold)
+    {
+        $this->conversion_ratio_threshold = $conversion_ratio_threshold;
     }
 
     /**
@@ -1006,155 +323,347 @@ class Offer
     }
 
     /**
-     * @return bool
+     * @param mixed $is_subscription
      */
-    public function isHasGoalsEnabled(): bool
-    {
-        return $this->has_goals_enabled;
-    }
-
-    /**
-     * @param bool $has_goals_enabled
-     */
-    public function setHasGoalsEnabled(bool $has_goals_enabled)
-    {
-        $this->has_goals_enabled = $has_goals_enabled;
-    }
-
-    /**
-     * @return int
-     */
-    public function getHostnameId(): int
-    {
-        return $this->hostname_id;
-    }
-
-    /**
-     * @param int $hostname_id
-     */
-    public function setHostnameId(int $hostname_id)
-    {
-        $this->hostname_id = $hostname_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isExpired(): bool
-    {
-        return $this->is_expired;
-    }
-
-    /**
-     * @param bool $is_expired
-     */
-    public function setIsExpired(bool $is_expired)
-    {
-        $this->is_expired = $is_expired;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isPrivate(): bool
-    {
-        return $this->is_private;
-    }
-
-    /**
-     * @param bool $is_private
-     */
-    public function setIsPrivate(bool $is_private)
-    {
-        $this->is_private = $is_private;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSeoFriendly301(): bool
-    {
-        return $this->is_seo_friendly_301;
-    }
-
-    /**
-     * @param bool $is_seo_friendly_301
-     */
-    public function setIsSeoFriendly301(bool $is_seo_friendly_301)
-    {
-        $this->is_seo_friendly_301 = $is_seo_friendly_301;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSubscription(): bool
-    {
-        return $this->is_subscription;
-    }
-
-    /**
-     * @param bool $is_subscription
-     */
-    public function setIsSubscription(bool $is_subscription)
+    public function setIsSubscription($is_subscription)
     {
         $this->is_subscription = $is_subscription;
     }
 
     /**
-     * @return mixed
+     * @param mixed $subscription_duration
      */
-    public function getLifetimeConversionCap()
+    public function setSubscriptionDuration($subscription_duration)
     {
-        return $this->lifetime_conversion_cap;
+        $this->subscription_duration = $subscription_duration;
     }
 
     /**
-     * @param mixed $lifetime_conversion_cap
+     * @param mixed $subscription_frequency
      */
-    public function setLifetimeConversionCap($lifetime_conversion_cap)
+    public function setSubscriptionFrequency($subscription_frequency)
     {
-        $this->lifetime_conversion_cap = $lifetime_conversion_cap;
+        $this->subscription_frequency = $subscription_frequency;
     }
 
     /**
-     * @return mixed
+     * @param mixed $customer_list_id
      */
-    public function getLifetimePayoutCap()
+    public function setCustomerListId($customer_list_id)
     {
-        return $this->lifetime_payout_cap;
+        $this->customer_list_id = $customer_list_id;
     }
 
     /**
-     * @param mixed $lifetime_payout_cap
+     * @param mixed $ref_id
      */
-    public function setLifetimePayoutCap($lifetime_payout_cap)
+    public function setRefId($ref_id)
     {
-        $this->lifetime_payout_cap = $lifetime_payout_cap;
+        $this->ref_id = $ref_id;
     }
 
     /**
-     * @return mixed
+     * @param mixed $rating
      */
-    public function getLifetimeRevenueCap()
+    public function setRating($rating)
     {
-        return $this->lifetime_revenue_cap;
+        $this->rating = $rating;
+    }
+
+    /**
+     * @param mixed $disable_click_macro
+     */
+    public function setDisableClickMacro($disable_click_macro)
+    {
+        $this->disable_click_macro = $disable_click_macro;
+    }
+
+    /**
+     * @param mixed $click_macro_url
+     */
+    public function setClickMacroUrl($click_macro_url)
+    {
+        $this->click_macro_url = $click_macro_url;
+    }
+
+    /**
+     * @param mixed $conversion_cap
+     */
+    public function setConversionCap($conversion_cap)
+    {
+        $this->conversion_cap = $conversion_cap;
+    }
+
+    /**
+     * @param mixed $monthly_conversion_cap
+     */
+    public function setMonthlyConversionCap($monthly_conversion_cap)
+    {
+        $this->monthly_conversion_cap = $monthly_conversion_cap;
+    }
+
+    /**
+     * @param mixed $payout_cap
+     */
+    public function setPayoutCap($payout_cap)
+    {
+        $this->payout_cap = $payout_cap;
+    }
+
+    /**
+     * @param mixed $monthly_payout_cap
+     */
+    public function setMonthlyPayoutCap($monthly_payout_cap)
+    {
+        $this->monthly_payout_cap = $monthly_payout_cap;
+    }
+
+    /**
+     * @param mixed $revenue_cap
+     */
+    public function setRevenueCap($revenue_cap)
+    {
+        $this->revenue_cap = $revenue_cap;
+    }
+
+    /**
+     * @param mixed $monthly_revenue_cap
+     */
+    public function setMonthlyRevenueCap($monthly_revenue_cap)
+    {
+        $this->monthly_revenue_cap = $monthly_revenue_cap;
+    }
+
+    /**
+     * @param mixed $target_browsers
+     */
+    public function setTargetBrowsers($target_browsers)
+    {
+        $this->target_browsers = $target_browsers;
+    }
+
+    /**
+     * @param mixed $approve_conversions
+     */
+    public function setApproveConversions($approve_conversions)
+    {
+        $this->approve_conversions = $approve_conversions;
+    }
+
+    /**
+     * @param mixed $allow_multiple_conversions
+     */
+    public function setAllowMultipleConversions($allow_multiple_conversions)
+    {
+        $this->allow_multiple_conversions = $allow_multiple_conversions;
+    }
+
+    /**
+     * @param mixed $allow_website_links
+     */
+    public function setAllowWebsiteLinks($allow_website_links)
+    {
+        $this->allow_website_links = $allow_website_links;
+    }
+
+    /**
+     * @param mixed $allow_direct_links
+     */
+    public function setAllowDirectLinks($allow_direct_links)
+    {
+        $this->allow_direct_links = $allow_direct_links;
+    }
+
+    /**
+     * @param mixed $show_custom_variables
+     */
+    public function setShowCustomVariables($show_custom_variables)
+    {
+        $this->show_custom_variables = $show_custom_variables;
+    }
+
+    /**
+     * @param mixed $session_hours
+     */
+    public function setSessionHours($session_hours)
+    {
+        $this->session_hours = $session_hours;
+    }
+
+    /**
+     * @param mixed $session_impression_hours
+     */
+    public function setSessionImpressionHours($session_impression_hours)
+    {
+        $this->session_impression_hours = $session_impression_hours;
+    }
+
+    /**
+     * @param mixed $set_session_on_impression
+     */
+    public function setSetSessionOnImpression($set_session_on_impression)
+    {
+        $this->set_session_on_impression = $set_session_on_impression;
+    }
+
+    /**
+     * @param mixed $is_seo_friendly_301
+     */
+    public function setIsSeoFriendly301($is_seo_friendly_301)
+    {
+        $this->is_seo_friendly_301 = $is_seo_friendly_301;
+    }
+
+    /**
+     * @param mixed $show_mail_list
+     */
+    public function setShowMailList($show_mail_list)
+    {
+        $this->show_mail_list = $show_mail_list;
+    }
+
+    /**
+     * @param mixed $dne_list_id
+     */
+    public function setDneListId($dne_list_id)
+    {
+        $this->dne_list_id = $dne_list_id;
+    }
+
+    /**
+     * @param mixed $email_instructions
+     */
+    public function setEmailInstructions($email_instructions)
+    {
+        $this->email_instructions = $email_instructions;
+    }
+
+    /**
+     * @param mixed $email_instructions_from
+     */
+    public function setEmailInstructionsFrom($email_instructions_from)
+    {
+        $this->email_instructions_from = $email_instructions_from;
+    }
+
+    /**
+     * @param mixed $email_instructions_subject
+     */
+    public function setEmailInstructionsSubject($email_instructions_subject)
+    {
+        $this->email_instructions_subject = $email_instructions_subject;
+    }
+
+    /**
+     * @param mixed $enforce_geo_targeting
+     */
+    public function setEnforceGeoTargeting($enforce_geo_targeting)
+    {
+        $this->enforce_geo_targeting = $enforce_geo_targeting;
+    }
+
+    /**
+     * @param mixed $enforce_secure_tracking_link
+     */
+    public function setEnforceSecureTrackingLink($enforce_secure_tracking_link)
+    {
+        $this->enforce_secure_tracking_link = $enforce_secure_tracking_link;
+    }
+
+    /**
+     * @param mixed $hostname_id
+     */
+    public function setHostnameId($hostname_id)
+    {
+        $this->hostname_id = $hostname_id;
+    }
+
+    /**
+     * @param mixed $has_goals_enabled
+     */
+    public function setHasGoalsEnabled($has_goals_enabled)
+    {
+        $this->has_goals_enabled = $has_goals_enabled;
+    }
+
+    /**
+     * @param mixed $default_goal_name
+     */
+    public function setDefaultGoalName($default_goal_name)
+    {
+        $this->default_goal_name = $default_goal_name;
+    }
+
+    /**
+     * @param mixed $enforce_encrypt_tracking_pixels
+     */
+    public function setEnforceEncryptTrackingPixels($enforce_encrypt_tracking_pixels)
+    {
+        $this->enforce_encrypt_tracking_pixels = $enforce_encrypt_tracking_pixels;
+    }
+
+    /**
+     * @param mixed $modified
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+    }
+
+    /**
+     * @param mixed $enable_offer_whitelist
+     */
+    public function setEnableOfferWhitelist($enable_offer_whitelist)
+    {
+        $this->enable_offer_whitelist = $enable_offer_whitelist;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @param mixed $use_target_rules
+     */
+    public function setUseTargetRules($use_target_rules)
+    {
+        $this->use_target_rules = $use_target_rules;
+    }
+
+    /**
+     * @param mixed $use_payout_groups
+     */
+    public function setUsePayoutGroups($use_payout_groups)
+    {
+        $this->use_payout_groups = $use_payout_groups;
+    }
+
+    /**
+     * @param mixed $use_revenue_groups
+     */
+    public function setUseRevenueGroups($use_revenue_groups)
+    {
+        $this->use_revenue_groups = $use_revenue_groups;
+    }
+
+    /**
+     * @param mixed $website_links_copy_static_params
+     */
+    public function setWebsiteLinksCopyStaticParams($website_links_copy_static_params)
+    {
+        $this->website_links_copy_static_params = $website_links_copy_static_params;
+    }
+
+    /**
+     * @param mixed $create_date_utc
+     */
+    public function setCreateDateUtc($create_date_utc)
+    {
+        $this->create_date_utc = $create_date_utc;
     }
 
     /**
@@ -1166,581 +675,684 @@ class Offer
     }
 
     /**
-     * @return float
+     * @param mixed $lifetime_conversion_cap
      */
-    public function getMaxPayout(): float
+    public function setLifetimeConversionCap($lifetime_conversion_cap)
     {
-        return $this->max_payout;
+        $this->lifetime_conversion_cap = $lifetime_conversion_cap;
     }
 
     /**
-     * @param float $max_payout
+     * @param mixed $lifetime_payout_cap
      */
-    public function setMaxPayout(float $max_payout)
+    public function setLifetimePayoutCap($lifetime_payout_cap)
     {
-        $this->max_payout = $max_payout;
+        $this->lifetime_payout_cap = $lifetime_payout_cap;
     }
 
     /**
-     * @return float
+     * @param mixed $is_expired
      */
-    public function getMaxPercentPayout(): float
+    public function setIsExpired($is_expired)
     {
-        return $this->max_percent_payout;
+        $this->is_expired = $is_expired;
     }
 
     /**
-     * @param float $max_percent_payout
+     * @param mixed $dne_download_url
      */
-    public function setMaxPercentPayout(float $max_percent_payout)
+    public function setDneDownloadUrl($dne_download_url)
     {
-        $this->max_percent_payout = $max_percent_payout;
+        $this->dne_download_url = $dne_download_url;
     }
 
     /**
-     * @return \Datetime
+     * @param mixed $dne_unsubscribe_url
      */
-    public function getModified(): \Datetime
+    public function setDneUnsubscribeUrl($dne_unsubscribe_url)
     {
-        return $this->modified;
+        $this->dne_unsubscribe_url = $dne_unsubscribe_url;
     }
 
     /**
-     * @param \Datetime $modified
+     * @param mixed $dne_third_party_list
      */
-    public function setModified(\Datetime $modified)
+    public function setDneThirdPartyList($dne_third_party_list)
     {
-        $this->modified = $modified;
+        $this->dne_third_party_list = $dne_third_party_list;
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getMonthlyConversionCap(): int
+    public function getId()
     {
-        return $this->monthly_conversion_cap;
+        return $this->id;
     }
 
     /**
-     * @param int $monthly_conversion_cap
+     * @return mixed
      */
-    public function setMonthlyConversionCap(int $monthly_conversion_cap)
+    public function getDisplayAdvertiser()
     {
-        $this->monthly_conversion_cap = $monthly_conversion_cap;
+        return $this->display_advertiser;
     }
 
     /**
-     * @return float
+     * @return mixed
      */
-    public function getMonthlyPayoutCap(): float
+    public function getAdvertiserId()
     {
-        return $this->monthly_payout_cap;
+        return $this->advertiser_id;
     }
 
     /**
-     * @param float $monthly_payout_cap
+     * @return mixed
      */
-    public function setMonthlyPayoutCap(float $monthly_payout_cap)
-    {
-        $this->monthly_payout_cap = $monthly_payout_cap;
-    }
-
-    /**
-     * @return float
-     */
-    public function getMonthlyRevenueCap(): float
-    {
-        return $this->monthly_revenue_cap;
-    }
-
-    /**
-     * @param float $monthly_revenue_cap
-     */
-    public function setMonthlyRevenueCap(float $monthly_revenue_cap)
-    {
-        $this->monthly_revenue_cap = $monthly_revenue_cap;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @return mixed
      */
-    public function setName(string $name)
+    public function getDescription()
     {
-        $this->name = $name;
+        return $this->description;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getOfferUrl(): string
-    {
-        return $this->offer_url;
-    }
-
-    /**
-     * @param string $offer_url
-     */
-    public function setOfferUrl(string $offer_url)
-    {
-        $this->offer_url = $offer_url;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPayoutCap(): float
-    {
-        return $this->payout_cap;
-    }
-
-    /**
-     * @param float $payout_cap
-     */
-    public function setPayoutCap(float $payout_cap)
-    {
-        $this->payout_cap = $payout_cap;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPayoutType(): string
-    {
-        return $this->payout_type;
-    }
-
-    /**
-     * @param string $payout_type
-     */
-    public function setPayoutType(string $payout_type)
-    {
-        $this->payout_type = $payout_type;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPercentPayout(): float
-    {
-        return $this->percent_payout;
-    }
-
-    /**
-     * @param float $percent_payout
-     */
-    public function setPercentPayout(float $percent_payout)
-    {
-        $this->percent_payout = $percent_payout;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPreviewUrl(): string
-    {
-        return $this->preview_url;
-    }
-
-    /**
-     * @param string $preview_url
-     */
-    public function setPreviewUrl(string $preview_url)
-    {
-        $this->preview_url = $preview_url;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProtocol(): string
-    {
-        return $this->protocol;
-    }
-
-    /**
-     * @param string $protocol
-     */
-    public function setProtocol(string $protocol)
-    {
-        $this->protocol = $protocol;
-    }
-
-    /**
-     * @return int
-     */
-    public function getRating(): int
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @param int $rating
-     */
-    public function setRating(int $rating)
-    {
-        $this->rating = $rating;
-    }
-
-    /**
-     * @return int
-     */
-    public function getRedirectOfferId(): int
-    {
-        return $this->redirect_offer_id;
-    }
-
-    /**
-     * @param int $redirect_offer_id
-     */
-    public function setRedirectOfferId(int $redirect_offer_id)
-    {
-        $this->redirect_offer_id = $redirect_offer_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRefId(): string
-    {
-        return $this->ref_id;
-    }
-
-    /**
-     * @param string $ref_id
-     */
-    public function setRefId(string $ref_id)
-    {
-        $this->ref_id = $ref_id;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isRequireApproval(): bool
+    public function getRequireApproval()
     {
         return $this->require_approval;
     }
 
     /**
-     * @param bool $require_approval
+     * @return mixed
      */
-    public function setRequireApproval(bool $require_approval)
-    {
-        $this->require_approval = $require_approval;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequireTermsAndConditions(): string
+    public function getRequireTermsAndConditions()
     {
         return $this->require_terms_and_conditions;
     }
 
     /**
-     * @param string $require_terms_and_conditions
+     * @return mixed
      */
-    public function setRequireTermsAndConditions(string $require_terms_and_conditions)
-    {
-        $this->require_terms_and_conditions = $require_terms_and_conditions;
-    }
-
-    /**
-     * @return float
-     */
-    public function getRevenueCap(): float
-    {
-        return $this->revenue_cap;
-    }
-
-    /**
-     * @param float $revenue_cap
-     */
-    public function setRevenueCap(float $revenue_cap)
-    {
-        $this->revenue_cap = $revenue_cap;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRevenueType(): string
-    {
-        return $this->revenue_type;
-    }
-
-    /**
-     * @param string $revenue_type
-     */
-    public function setRevenueType(string $revenue_type)
-    {
-        $this->revenue_type = $revenue_type;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSessionHours(): int
-    {
-        return $this->session_hours;
-    }
-
-    /**
-     * @param int $session_hours
-     */
-    public function setSessionHours(int $session_hours)
-    {
-        $this->session_hours = $session_hours;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSessionImpressionHours(): int
-    {
-        return $this->session_impression_hours;
-    }
-
-    /**
-     * @param int $session_impression_hours
-     */
-    public function setSessionImpressionHours(int $session_impression_hours)
-    {
-        $this->session_impression_hours = $session_impression_hours;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSetSessionOnImpression(): bool
-    {
-        return $this->set_session_on_impression;
-    }
-
-    /**
-     * @param bool $set_session_on_impression
-     */
-    public function setSetSessionOnImpression(bool $set_session_on_impression)
-    {
-        $this->set_session_on_impression = $set_session_on_impression;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isShowCustomVariables(): bool
-    {
-        return $this->show_custom_variables;
-    }
-
-    /**
-     * @param bool $show_custom_variables
-     */
-    public function setShowCustomVariables(bool $show_custom_variables)
-    {
-        $this->show_custom_variables = $show_custom_variables;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isShowMailList(): bool
-    {
-        return $this->show_mail_list;
-    }
-
-    /**
-     * @param bool $show_mail_list
-     */
-    public function setShowMailList(bool $show_mail_list)
-    {
-        $this->show_mail_list = $show_mail_list;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param string $status
-     */
-    public function setStatus(string $status)
-    {
-        $this->status = $status;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSubscriptionDuration(): int
-    {
-        return $this->subscription_duration;
-    }
-
-    /**
-     * @param int $subscription_duration
-     */
-    public function setSubscriptionDuration(int $subscription_duration)
-    {
-        $this->subscription_duration = $subscription_duration;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSubscriptionFrequency(): string
-    {
-        return $this->subscription_frequency;
-    }
-
-    /**
-     * @param string $subscription_frequency
-     */
-    public function setSubscriptionFrequency(string $subscription_frequency)
-    {
-        $this->subscription_frequency = $subscription_frequency;
-    }
-
-    /**
-     * @deprecated
-     * @return int
-     */
-    public function getTargetBrowsers(): int
-    {
-        return $this->target_browsers;
-    }
-
-    /**
-     * @deprecated
-     * @param int $target_browsers
-     */
-    public function setTargetBrowsers(int $target_browsers)
-    {
-        $this->target_browsers = $target_browsers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTermsAndConditions(): string
+    public function getTermsAndConditions()
     {
         return $this->terms_and_conditions;
     }
 
     /**
-     * @param string $terms_and_conditions
+     * @return mixed
      */
-    public function setTermsAndConditions(string $terms_and_conditions)
+    public function getPreviewUrl()
     {
-        $this->terms_and_conditions = $terms_and_conditions;
+        return $this->preview_url;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function isTieredPayout(): bool
+    public function getOfferUrl()
+    {
+        return $this->offer_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDefaultPayout()
+    {
+        return $this->default_payout;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxPayout()
+    {
+        return $this->max_payout;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProtocol()
+    {
+        return $this->protocol;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpirationDate()
+    {
+        return $this->expiration_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisPrivate()
+    {
+        return $this->is_private;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayoutType()
+    {
+        return $this->payout_type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTieredPayout()
     {
         return $this->tiered_payout;
     }
 
     /**
-     * @param bool $tiered_payout
+     * @return mixed
      */
-    public function setTieredPayout(bool $tiered_payout)
-    {
-        $this->tiered_payout = $tiered_payout;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isTieredRevenue(): bool
+    public function getTieredRevenue()
     {
         return $this->tiered_revenue;
     }
 
     /**
-     * @param bool $tiered_revenue
+     * @return mixed
      */
-    public function setTieredRevenue(bool $tiered_revenue)
+    public function getPercentPayout()
     {
-        $this->tiered_revenue = $tiered_revenue;
+        return $this->percent_payout;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function isUsePayoutGroups(): bool
+    public function getRevenueType()
     {
-        return $this->use_payout_groups;
+        return $this->revenue_type;
     }
 
     /**
-     * @param bool $use_payout_groups
+     * @return mixed
      */
-    public function setUsePayoutGroups(bool $use_payout_groups)
+    public function getMaxPercentPayout()
     {
-        $this->use_payout_groups = $use_payout_groups;
+        return $this->max_percent_payout;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function isUseRevenueGroups(): bool
+    public function getRedirectOfferId()
     {
-        return $this->use_revenue_groups;
+        return $this->redirect_offer_id;
     }
 
     /**
-     * @param bool $use_revenue_groups
+     * @return mixed
      */
-    public function setUseRevenueGroups(bool $use_revenue_groups)
+    public function getConvertedOfferType()
     {
-        $this->use_revenue_groups = $use_revenue_groups;
+        return $this->converted_offer_type;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function isUseTargetRules(): bool
+    public function getConvertedOfferId()
+    {
+        return $this->converted_offer_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConvertedOfferUrl()
+    {
+        return $this->converted_offer_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConversionRatioThreshold()
+    {
+        return $this->conversion_ratio_threshold;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisSubscription()
+    {
+        return $this->is_subscription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionDuration()
+    {
+        return $this->subscription_duration;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionFrequency()
+    {
+        return $this->subscription_frequency;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerListId()
+    {
+        return $this->customer_list_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefId()
+    {
+        return $this->ref_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisableClickMacro()
+    {
+        return $this->disable_click_macro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClickMacroUrl()
+    {
+        return $this->click_macro_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConversionCap()
+    {
+        return $this->conversion_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMonthlyConversionCap()
+    {
+        return $this->monthly_conversion_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayoutCap()
+    {
+        return $this->payout_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMonthlyPayoutCap()
+    {
+        return $this->monthly_payout_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRevenueCap()
+    {
+        return $this->revenue_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMonthlyRevenueCap()
+    {
+        return $this->monthly_revenue_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTargetBrowsers()
+    {
+        return $this->target_browsers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApproveConversions()
+    {
+        return $this->approve_conversions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowMultipleConversions()
+    {
+        return $this->allow_multiple_conversions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowWebsiteLinks()
+    {
+        return $this->allow_website_links;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowDirectLinks()
+    {
+        return $this->allow_direct_links;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShowCustomVariables()
+    {
+        return $this->show_custom_variables;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionHours()
+    {
+        return $this->session_hours;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionImpressionHours()
+    {
+        return $this->session_impression_hours;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSetSessionOnImpression()
+    {
+        return $this->set_session_on_impression;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisSeoFriendly301()
+    {
+        return $this->is_seo_friendly_301;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShowMailList()
+    {
+        return $this->show_mail_list;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDneListId()
+    {
+        return $this->dne_list_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmailInstructions()
+    {
+        return $this->email_instructions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmailInstructionsFrom()
+    {
+        return $this->email_instructions_from;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmailInstructionsSubject()
+    {
+        return $this->email_instructions_subject;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnforceGeoTargeting()
+    {
+        return $this->enforce_geo_targeting;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnforceSecureTrackingLink()
+    {
+        return $this->enforce_secure_tracking_link;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHostnameId()
+    {
+        return $this->hostname_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHasGoalsEnabled()
+    {
+        return $this->has_goals_enabled;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDefaultGoalName()
+    {
+        return $this->default_goal_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnforceEncryptTrackingPixels()
+    {
+        return $this->enforce_encrypt_tracking_pixels;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnableOfferWhitelist()
+    {
+        return $this->enable_offer_whitelist;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUseTargetRules()
     {
         return $this->use_target_rules;
     }
 
     /**
-     * @param bool $use_target_rules
+     * @return mixed
      */
-    public function setUseTargetRules(bool $use_target_rules)
+    public function getUsePayoutGroups()
     {
-        $this->use_target_rules = $use_target_rules;
+        return $this->use_payout_groups;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function isWebsiteLinksCopyStaticParams(): bool
+    public function getUseRevenueGroups()
+    {
+        return $this->use_revenue_groups;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWebsiteLinksCopyStaticParams()
     {
         return $this->website_links_copy_static_params;
     }
 
     /**
-     * @param bool $website_links_copy_static_params
+     * @return mixed
      */
-    public function setWebsiteLinksCopyStaticParams(bool $website_links_copy_static_params)
+    public function getCreateDateUtc()
     {
-        $this->website_links_copy_static_params = $website_links_copy_static_params;
+        return $this->create_date_utc;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLifetimeRevenueCap()
+    {
+        return $this->lifetime_revenue_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLifetimeConversionCap()
+    {
+        return $this->lifetime_conversion_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLifetimePayoutCap()
+    {
+        return $this->lifetime_payout_cap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisExpired()
+    {
+        return $this->is_expired;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDneDownloadUrl()
+    {
+        return $this->dne_download_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDneUnsubscribeUrl()
+    {
+        return $this->dne_unsubscribe_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDneThirdPartyList()
+    {
+        return $this->dne_third_party_list;
+    }
+
 
 }

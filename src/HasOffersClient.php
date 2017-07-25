@@ -171,7 +171,27 @@ class HasOffersClient
         curl_close($curl);
 
         if(isset($this->last_curl_result->response) === true ) {
-            return $this->last_curl_result->response;
+
+            if(isset($this->last_curl_result->response->data) === true && empty($this->last_curl_result->response->data) === false) {
+
+                $return = null;
+                $data = $this->last_curl_result->response->data;
+                $Mapper = new \JsonMapper();
+
+                if(count($data) > 1) {
+                    foreach($data as $key => $value) {
+                        $class = 'HasOffersApi\\Mappings\\'.$key;
+                        $return = $Mapper->mapArray($value, [], new $class());
+                    }
+                } else {
+                    foreach($data as $key => $value) {
+                        $class = 'HasOffersApi\\Mappings\\'.$key;
+                        $return = $Mapper->map($value, new $class());
+                    }
+                }
+
+                return $return;
+            }
         } else {
             $error->status = -1;
             $error->data = '';
