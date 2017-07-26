@@ -12,6 +12,7 @@ namespace HasOffersApi;
 use HasOffersApi\Exceptions\ApiKeyEmptyException;
 use HasOffersApi\Exceptions\NetworkIdEmptyException;
 use HasOffersApi\Helper\Criteria;
+use HasOffersApi\Mappings\Offer;
 
 /**
  * Class HasOffersClient
@@ -151,19 +152,19 @@ class HasOffersClient
 
     /**
      * @param string $http_query_string
-     * @return mixed
+     * @return mixed|null|object|\stdClass
      */
     private function curl(string $http_query_string) {
 
         $error = new \stdClass();
-
-        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
 
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => $this->getApiConnectUrl().'&'.$http_query_string
         ]);
+
+        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
 
         $this->last_curl_result = json_decode(curl_exec($curl));
         $this->last_curl_info = curl_getinfo($curl);
@@ -177,18 +178,68 @@ class HasOffersClient
                 $return = null;
                 $data = $this->last_curl_result->response->data;
                 $Mapper = new \JsonMapper();
+                $Mapper->bStrictNullTypes = false;
 
-                if(count($data) > 1) {
-                    foreach($data as $key => $value) {
-                        $class = 'HasOffersApi\\Mappings\\'.$key;
-                        $return = $Mapper->mapArray($value, [], new $class());
-                    }
-                } else {
-                    foreach($data as $key => $value) {
-                        $class = 'HasOffersApi\\Mappings\\'.$key;
-                        $return = $Mapper->map($value, new $class());
+                $Target = new \stdClass();
+                $Contain = new \stdClass();
+                $contains = $this->getContain();
+                $target_key = '';
+
+                foreach($data as $key => $value) {
+
+                    if (in_array($key, $contains) === true) {
+                        if(count(get_object_vars($value)) > 1) {
+                            foreach($value as $k => $v) {
+                                $Contain->{$key}[] = $v;
+                            }
+                        } else {
+                            $Contain->{$key} = $value;
+                        }
+                    } else {
+                        $target_key = $key;
+                        $Target->{$key} = $value;
                     }
                 }
+
+                if($Contain !== null) {
+                    foreach($Contain as $key => $value) {
+                        $Target->{$target_key}->{$key} = $value;
+                    }
+                }
+
+                echo "\n".json_encode($Target)."\n";
+                $return = $Mapper->map($Target, new Offer());
+                var_dump($return);
+                exit;
+
+                if($Target !== null) {
+                    foreach($Target as $key => $value) {
+                        var_dump($key);
+                        $class = 'HasOffersApi\\Mappings\\'.$key;
+                        if(is_array($value)) {
+
+                        } else {
+                            $return = $Mapper->map($value, new $class());
+                        }
+                    }
+                }
+
+                exit;
+//                    $return[] = $Mapper->mapArray($value, [], new $class());
+
+//                var_dump($this->last_curl_result->response->data);exit;
+
+//                if(count($data) > 1) {
+//                    foreach($data as $key => $value) {
+//                        $class = 'HasOffersApi\\Mappings\\'.$key;
+//                        $return = $Mapper->mapArray($value, [], new $class());
+//                    }
+//                } else {
+//                    foreach($data as $key => $value) {
+//                        $class = 'HasOffersApi\\Mappings\\'.$key;
+//                        $return = $Mapper->map($value, new $class());
+//                    }
+//                }
 
                 return $return;
             }
@@ -230,7 +281,7 @@ class HasOffersClient
      */
     public function getFilters(): array
     {
-        return $this->url_params[self::PARAM_INDEX_FILTERS];
+        return $this->url_params[Criteria::PARAM_INDEX_FILTERS];
     }
 
     /**
@@ -283,6 +334,8 @@ class HasOffersClient
     }
 
     /**
+     *
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#sorting
      * @param array $sort
      * @return $this
      * @throws \Exception
@@ -307,6 +360,7 @@ class HasOffersClient
     }
 
     /**
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#paging
      * @param int $limit
      * @return $this
      */
@@ -334,6 +388,8 @@ class HasOffersClient
     }
 
     /**
+     *
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#paging
      * @param int $page
      * @return $this
      */

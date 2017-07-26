@@ -15,6 +15,8 @@ namespace HasOffersApi\Helper;
  */
 class Criteria
 {
+    CONST TARGET_INDEX = 'Target';
+    CONST METHOD_INDEX = 'Method';
 
     CONST OR = 'OR';
     CONST NOT_EQUAL_TO = 'NOT_EQUAL_TO';                        // sample: &filters[status][NOT_EQUAL_TO]=active
@@ -63,11 +65,6 @@ class Criteria
     protected $target_list_file_name = 'target_list.json';
 
     /**
-     * @var string
-     */
-    protected $model_list_file_name = 'model_list.json';
-
-    /**
      * Criteria constructor.
      * @param string $target
      * @param string $method
@@ -84,8 +81,8 @@ class Criteria
 
             if(in_array($method, $method_list) === true) {
 
-                $this->criteria['Target'] = $target;
-                $this->criteria['Method'] = $method;
+                $this->criteria[self::TARGET_INDEX] = $target;
+                $this->criteria[self::METHOD_INDEX] = $method;
 
                 $this->current_target = $target;
                 $this->current_method = $method;
@@ -97,10 +94,10 @@ class Criteria
                 }
 
             } else {
-                throw new \Exception('Method "'.$method.'" not found.');
+                throw new \Exception(self::METHOD_INDEX.' "'.$method.'" not found.');
             }
         } else {
-            throw new \Exception('Target "'.$target.'" not found.');
+            throw new \Exception(self::TARGET_INDEX.' "'.$target.'" not found.');
         }
 
     }
@@ -134,25 +131,9 @@ class Criteria
     }
 
     /**
-     * @return array
-     */
-    private function getModels()
-    {
-        $modelHelper = new ModelHelper($this->getResourcesPath().$this->model_list_file_name);
-        return $modelHelper->getModels();
-    }
-
-    /**
-     * @param string $model
-     * @return array
-     */
-    private function getModelColumns(string $model)
-    {
-        $modelHelper = new ModelHelper($this->getResourcesPath().$this->model_list_file_name);
-        return $modelHelper->getModelColumns($model);
-    }
-
-    /**
+     * This is the usual filter function - search for a AND b AND c AND d ...
+     *
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#filtering
      * @param string $column
      * @param $value
      * @param string $criteria
@@ -178,6 +159,9 @@ class Criteria
     }
 
     /**
+     * Declare an filter OR statement
+     *
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#filtering
      * @param string $column
      * @param $value
      * @param string $criteria
@@ -203,6 +187,10 @@ class Criteria
     }
 
     /**
+     * If you have at least 2 variables you want to set for filtering - e.g date range - than you
+     * probably will use a conditional filter.
+     *
+     * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#report-filtering
      * @param string $column
      * @param $value
      * @param string $criteria
@@ -224,22 +212,6 @@ class Criteria
         }
 
         $this->criteria[self::PARAM_INDEX_FILTERS][$column][self::PARAM_INDEX_CONDITIONAL] = $criteria;
-
-        // &filters[Offer.name][conditional]=LIKE&[Offer.name][values]=%gift card%
-        // &filters[Stat.date][conditional]=BETWEEN&filters[Stat.date][values][0]=2013-12-29&filters[Stat.date][values][1]=2014-01-03
-        // &filters[status][conditional]=EQUAL_TO&filters[status][values][0]=active&filters[status][values][1]=pending
-
-        // https://psflc.api.hasoffers.com/Apiv3/json?
-        //
-        // NetworkToken=abjnrnu8c2n7yjgg9pb8wmjx5qzq785nxwss5n9rkxrs2cmge9ju7bv8awxpzj9p&
-        //Target=Offer&
-        //Method=findAll&
-        //filters[id][GREATER_THAN_OR_EQUAL_TO]=2&
-        //filters[OR][advertiser_id][GREATER_THAN]=12&
-        //filters[create_date_utc][conditional]=BETWEEN&
-        //filters[create_date_utc][values][0]=2017-02-01&filters[create_date_utc][values][1]=2017-07-12&
-
-        //filters[create_date_utc][BETWEEN][0]=2017-02-01&filters[create_date_utc][BETWEEN][1]=2017-07-12&limit=22
 
         foreach($value as $v) {
             $this->criteria[self::PARAM_INDEX_FILTERS][$column][self::PARAM_INDEX_CONDITIONAL_VALUES][] = $v;
@@ -272,16 +244,5 @@ class Criteria
     {
         return $this->criteria;
     }
-
-    // curl https://troop.api.hasoffers.com/Apiv3/json?
-    // NetworkToken=fasfasdfasdfasfasfasd&
-    // Target=Offer&
-    // Method=findAll&
-    // fields[]=conversion_cap&fields[]=allow_multiple_conversions&
-    // filters[currency]=EUR&filters[allow_website_links]=0&
-    // sort[converted_offer_id]=desc&sort[allow_website_links]=desc&
-    // limit=22&
-    // contain[]=Goal
-
 
 }

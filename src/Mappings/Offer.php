@@ -8,6 +8,10 @@
 
 namespace HasOffersApi\Mappings;
 
+/**
+ * Class Offer
+ * @package HasOffersApi\Mappings
+ */
 class Offer
 {
     protected $id;
@@ -89,6 +93,91 @@ class Offer
     protected $dne_download_url;
     protected $dne_unsubscribe_url;
     protected $dne_third_party_list;
+
+    /**
+     * Advertiser associated with the offer (Advertiser)
+     * @var Advertiser
+     */
+    protected $Advertiser;
+
+    /**
+     * Affiliate tier payouts defined for the offer (AffiliateTierPayout)
+     * @var AffiliateTierPayout
+     */
+    protected $AffiliateTierPayout;
+
+    /**
+     * Affiliate tier revenues defined for the offer (AffiliateTierRevenue)
+     * @var AffiliateTierRevenue
+     */
+    protected $AffiliateTierRevenue;
+
+    /**
+     * Countries geo-targeted by the offer (Country)
+     * @var Country
+     */
+    protected $Country;
+
+    /**
+     * Goals belonging to the offer (Goal)
+     * @var Goal
+     */
+    protected $Goal;
+
+    /**
+     * Hostname associated with the offer (Hostname)
+     * @var Hostname
+     */
+    protected $Hostname;
+
+    /**
+     * Offer categories associated with the offer (OfferCategory)
+     * @var OfferCategory
+     */
+    protected $OfferCategory;
+
+    /**
+     * Offer groups associated with the offer (OfferGroup)
+     * @var OfferGroup
+     */
+    protected $OfferGroup;
+
+    /**
+     * Landing pages associated with the offer (OfferUrl)
+     * @var OfferUrl
+     */
+    protected $OfferUrl;
+
+    /**
+     * Payout groups defined for the offer (PayoutGroupOffer)
+     * @var PayoutGroup
+     */
+    protected $PayoutGroup;
+
+    /**
+     * Revenue groups defined for the offer (RevenueGroupOffer)
+     * @var RevenueGroup
+     */
+    protected $RevenueGroup;
+
+    /**
+     * Stats associated with the offer (StatReport)
+     * @var Stats
+     */
+    protected $Stat;
+
+    /**
+     * Subscriptions for the offer (Subscription)
+     * @var Subscription
+     */
+    protected $Subscription;
+
+    /**
+     * Thumbnail image (OfferFile)
+     * @var Thumbnail
+     */
+    protected $Thumbnail;
+
 
     /**
      * @param mixed $id
@@ -1352,6 +1441,214 @@ class Offer
     public function getDneThirdPartyList()
     {
         return $this->dne_third_party_list;
+    }
+
+    /**
+     * @return Advertiser
+     */
+    public function getAdvertiser(): Advertiser
+    {
+        return $this->Advertiser;
+    }
+
+    /**
+     * @param Advertiser $Advertiser
+     */
+    public function setAdvertiser(Advertiser $Advertiser)
+    {
+        $this->Advertiser = $Advertiser;
+    }
+
+    /**
+     * @return AffiliateTierPayout
+     */
+    public function getAffiliateTierPayout(): AffiliateTierPayout
+    {
+        return $this->AffiliateTierPayout;
+    }
+
+    /**
+     * @param AffiliateTierPayout $AffiliateTierPayout
+     */
+    public function setAffiliateTierPayout(AffiliateTierPayout $AffiliateTierPayout)
+    {
+        $this->AffiliateTierPayout = $AffiliateTierPayout;
+    }
+
+    /**
+     * @return AffiliateTierRevenue
+     */
+    public function getAffiliateTierRevenue(): AffiliateTierRevenue
+    {
+        return $this->AffiliateTierRevenue;
+    }
+
+    /**
+     * @param AffiliateTierRevenue $AffiliateTierRevenue
+     */
+    public function setAffiliateTierRevenue(AffiliateTierRevenue $AffiliateTierRevenue)
+    {
+        $this->AffiliateTierRevenue = $AffiliateTierRevenue;
+    }
+
+    /**
+     * @return Country
+     */
+    public function getCountry(): Country
+    {
+        return $this->Country;
+    }
+
+    /**
+     * @param Country $Country
+     */
+    public function setCountry(Country $Country)
+    {
+        $this->Country = $Country;
+    }
+
+    /**
+     * @return Goal
+     */
+    public function getGoal(): Goal
+    {
+        return $this->Goal;
+    }
+
+    /**
+     * @param Goal $Goal
+     */
+    public function setGoal(Goal $Goal)
+    {
+        $this->Goal = $Goal;
+    }
+
+    /**
+     * @return Hostname
+     */
+    public function getHostname(): Hostname
+    {
+        return $this->Hostname;
+    }
+
+    /**
+     * @param Hostname $Hostname
+     */
+    public function setHostname(Hostname $Hostname)
+    {
+        $this->Hostname = $Hostname;
+    }
+
+    /**
+     * @return OfferCategory
+     */
+    public function getOfferCategory(): OfferCategory
+    {
+        return $this->OfferCategory;
+    }
+
+    /**
+     * @param OfferCategory $OfferCategory
+     */
+    public function setOfferCategory(OfferCategory $OfferCategory)
+    {
+        $this->OfferCategory = $OfferCategory;
+    }
+
+    /**
+     * @return OfferGroup
+     */
+    public function getOfferGroup(): OfferGroup
+    {
+        return $this->OfferGroup;
+    }
+
+    /**
+     * @param OfferGroup $OfferGroup
+     */
+    public function setOfferGroup(OfferGroup $OfferGroup)
+    {
+        $this->OfferGroup = $OfferGroup;
+    }
+
+    /**
+     * @return PayoutGroup
+     */
+    public function getPayoutGroup(): PayoutGroup
+    {
+        return $this->PayoutGroup;
+    }
+
+    /**
+     * @param PayoutGroup $PayoutGroup
+     */
+    public function setPayoutGroup(PayoutGroup $PayoutGroup)
+    {
+        $this->PayoutGroup = $PayoutGroup;
+    }
+
+    /**
+     * @return RevenueGroup
+     */
+    public function getRevenueGroup(): RevenueGroup
+    {
+        return $this->RevenueGroup;
+    }
+
+    /**
+     * @param RevenueGroup $RevenueGroup
+     */
+    public function setRevenueGroup(RevenueGroup $RevenueGroup)
+    {
+        $this->RevenueGroup = $RevenueGroup;
+    }
+
+    /**
+     * @return Stats
+     */
+    public function getStat(): Stats
+    {
+        return $this->Stat;
+    }
+
+    /**
+     * @param Stats $Stat
+     */
+    public function setStat(Stats $Stat)
+    {
+        $this->Stat = $Stat;
+    }
+
+    /**
+     * @return Subscription
+     */
+    public function getSubscription(): Subscription
+    {
+        return $this->Subscription;
+    }
+
+    /**
+     * @param Subscription $Subscription
+     */
+    public function setSubscription(Subscription $Subscription)
+    {
+        $this->Subscription = $Subscription;
+    }
+
+    /**
+     * @return Thumbnail
+     */
+    public function getThumbnail(): Thumbnail
+    {
+        return $this->Thumbnail;
+    }
+
+    /**
+     * @param Thumbnail $Thumbnail
+     */
+    public function setThumbnail(Thumbnail $Thumbnail)
+    {
+        $this->Thumbnail = $Thumbnail;
     }
 
 
