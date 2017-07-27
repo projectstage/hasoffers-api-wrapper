@@ -165,10 +165,12 @@ class HasOffersClient
      *
      * @param $http_query_string string - The parameter part of an url
      * @param $map boolean - map response to class
-     * @return null|object|\stdClass
+     * @return null|array|object|\stdClass
      */
-    private function curl($http_query_string, $map) {
+    private function curl($http_query_string, $map)
+    {
 
+        // cUrl process
         $error = new \stdClass();
 
         $curl = curl_init();
@@ -182,11 +184,26 @@ class HasOffersClient
 
         curl_close($curl);
 
+
+
+        // mapping process
         if(isset($this->last_curl_result->response) === true ) {
 
             if(isset($this->last_curl_result->response->data) === true && empty($this->last_curl_result->response->data) === false) {
                 if($map === true) {
-                    return $this->mapResponse($this->last_curl_result->response->data);
+
+                    $response_data = $this->last_curl_result->response->data;
+
+                    if($this->isFirstIndexInt($response_data) === true) {
+                        $return_data = [];
+                        foreach($response_data as $data) {
+                            $return_data[] = $this->mapResponse($data);
+                        }
+                        return $return_data;
+                    } else {
+                        return $this->mapResponse($this->last_curl_result->response->data);
+                    }
+
                 } else {
                     return $this->last_curl_result->response->data;
                 }
@@ -206,6 +223,24 @@ class HasOffersClient
 
             return $error;
         }
+    }
+
+    /**
+     * @param $mixed_data
+     * @return bool
+     */
+    private function isFirstIndexInt($mixed_data)
+    {
+        $response_is_array = false;
+
+        foreach($mixed_data as $key => $value) {
+            if((int)$key > 0) {
+                $response_is_array = true;
+            }
+            break;
+        }
+
+        return $response_is_array;
     }
 
     /**

@@ -76,18 +76,6 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testAndFilterWithColumnFailed($target, $method, $column, $value)
-    {
-        $this->expectException(\Exception::class);
-        $CriteriaTest = new Criteria($target, $method);
-
-        $CriteriaTest->andFilter('idx', $value);
-
-    }
-
-    /**
-     * @dataProvider dataProvider
-     */
     public function testAndFilterWithColumnSuccess($target, $method, $column, $value)
     {
         $CriteriaTest = new Criteria($target, $method);
@@ -96,6 +84,20 @@ class CriteriaTest extends TestCase
 
         $criteria = $CriteriaTest->getCriteria();
         $this->assertArrayHasKey($column, $criteria['filters']);
+
+    }
+
+    /**
+     * @dataProvider dataProvider
+     */
+    public function testOrFilterWithColumnSuccess($target, $method, $column, $value)
+    {
+        $CriteriaTest = new Criteria($target, $method);
+
+        $CriteriaTest->orFilter($column, $value);
+
+        $criteria = $CriteriaTest->getCriteria();
+        $this->assertArrayHasKey($column, $criteria['filters']['OR']);
 
     }
 
