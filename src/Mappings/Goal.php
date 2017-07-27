@@ -9,110 +9,116 @@
 namespace HasOffersApi\Mappings;
 
 /**
+ * Goal Model
+ * A Goal for an Offer. Applicable only if the "enable_offer_goals" Preference is enabled. The related Offer must also
+ * have the "has_goals_enabled" field enabled.
+ *
  * Class Goal
+ *
+ * @see https://help.tune.com/hasoffers/offer-goals/
  * @package HasOffersApi\Mappings
  */
 class Goal
 {
 
     /**
-     * @var
+     * @var integer
      */
     protected $advertiser_id;
     /**
-     * @var
+     * @var boolean
      */
     protected $allow_multiple_conversions;
     /**
-     * @var
+     * @var boolean
      */
     protected $approve_conversions;
     /**
-     * @var
+     * @var float
      */
     protected $default_payout;
     /**
-     * @var
+     * @var string
      */
     protected $description;
     /**
-     * @var
+     * @var boolean
      */
     protected $display_advertiser;
     /**
-     * @var
+     * @var boolean
      */
     protected $enforce_encrypt_tracking_pixels;
     /**
-     * @var
+     * @var integer
      */
     protected $id;
     /**
-     * @var
+     * @var boolean
      */
     protected $is_end_point;
     /**
-     * @var
+     * @var boolean
      */
     protected $is_private;
     /**
-     * @var
+     * @var float
      */
     protected $max_payout;
     /**
-     * @var
+     * @var float
      */
     protected $max_percent_payout;
     /**
-     * @var
+     * @var \DateTime
      */
     protected $modified;
     /**
-     * @var
+     * @var string
      */
     protected $name;
     /**
-     * @var
+     * @var integer
      */
     protected $offer_id;
     /**
-     * @var
+     * @var string
      */
     protected $payout_type;
     /**
-     * @var
+     * @var float
      */
     protected $percent_payout;
     /**
-     * @var
+     * @var string
      */
     protected $protocol;
     /**
-     * @var
+     * @var string
      */
     protected $ref_id;
     /**
-     * @var
+     * @var string
      */
     protected $revenue_type;
     /**
-     * @var
+     * @var string
      */
     protected $status;
     /**
-     * @var
+     * @var boolean
      */
     protected $tiered_payout;
     /**
-     * @var
+     * @var boolean
      */
     protected $tiered_revenue;
     /**
-     * @var
+     * @var boolean
      */
     protected $use_payout_groups;
     /**
-     * @var
+     * @var boolean
      */
     protected $use_revenue_groups;
 

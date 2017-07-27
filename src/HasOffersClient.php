@@ -12,7 +12,6 @@ namespace HasOffersApi;
 use HasOffersApi\Exceptions\ApiKeyEmptyException;
 use HasOffersApi\Exceptions\NetworkIdEmptyException;
 use HasOffersApi\Helper\Criteria;
-use HasOffersApi\Mappings\Offer;
 
 /**
  * Class HasOffersClient
@@ -48,12 +47,12 @@ class HasOffersClient
     protected $protocoll = 'https';
 
     /**
-     * @var
+     * @var mixed
      */
     protected $last_curl_result;
 
     /**
-     * @var
+     * @var array
      */
     protected $last_curl_info;
 
@@ -79,6 +78,7 @@ class HasOffersClient
 
     /**
      * HasOffersApi constructor.
+     *
      * @param string $network_id
      * @param string $api_key
      * @param string $api_version
@@ -86,7 +86,7 @@ class HasOffersClient
      * @throws ApiKeyEmptyException
      * @throws NetworkIdEmptyException
      */
-    public function __construct(string $network_id, string $api_key, string $api_version = 'Apiv3', string $response_type = 'json')
+    public function __construct($network_id, $api_key, $api_version = 'Apiv3', $response_type = 'json')
     {
         if ($network_id == '') {
             throw new NetworkIdEmptyException('Network ID seems to be empty');
@@ -105,12 +105,14 @@ class HasOffersClient
     /**
      * @return string
      */
-    private function getApiConnectUrl(): string
+    private function getApiConnectUrl()
     {
         return $this->api_connect_url;
     }
 
     /**
+     * Get the last cUrl result in raw format from JSON encoded response string
+     *
      * @return mixed
      */
     public function getLastCurlResult()
@@ -119,6 +121,9 @@ class HasOffersClient
     }
 
     /**
+     * Get the last cUrl info
+     *
+     * @see http://php.net/manual/en/function.curl-getinfo.php
      * @return mixed
      */
     public function getLastCurlInfo()
@@ -129,32 +134,40 @@ class HasOffersClient
     /**
      * @param string $api_connect_url
      */
-    private function setApiConnectUrl(string $api_connect_url)
+    private function setApiConnectUrl($api_connect_url)
     {
         $this->api_connect_url = $api_connect_url;
     }
 
     /**
+     * Will return an array containing URL params which are currently set
+     *
      * @return array
      */
-    public function getUrlParams(): array
+    public function getUrlParams()
     {
         return $this->url_params;
     }
 
     /**
-     * @return mixed
+     * Finally do your call against the HasOffers API
+     *
+     * @param bool $map - decide if you want to get the raw JSON encoded response or a class mapped response. Standard is false.
+     * @return mixed|null|object|\stdClass
      */
-    public function callApi() {
+    public function callApi($map = false) {
         $this->http_query_string = http_build_query($this->url_params);
-        return $this->curl($this->http_query_string);
+        return $this->curl($this->http_query_string, $map);
     }
 
     /**
-     * @param string $http_query_string
-     * @return mixed|null|object|\stdClass
+     * Make the cUrl call and return either class mappings or error
+     *
+     * @param $http_query_string string - The parameter part of an url
+     * @param $map boolean - map response to class
+     * @return null|object|\stdClass
      */
-    private function curl(string $http_query_string) {
+    private function curl($http_query_string, $map) {
 
         $error = new \stdClass();
 
@@ -164,8 +177,6 @@ class HasOffersClient
             CURLOPT_URL => $this->getApiConnectUrl().'&'.$http_query_string
         ]);
 
-        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
-
         $this->last_curl_result = json_decode(curl_exec($curl));
         $this->last_curl_info = curl_getinfo($curl);
 
@@ -174,98 +185,90 @@ class HasOffersClient
         if(isset($this->last_curl_result->response) === true ) {
 
             if(isset($this->last_curl_result->response->data) === true && empty($this->last_curl_result->response->data) === false) {
-
-                $return = null;
-                $data = $this->last_curl_result->response->data;
-                $Mapper = new \JsonMapper();
-                $Mapper->bStrictNullTypes = false;
-
-                $Target = new \stdClass();
-                $Contain = new \stdClass();
-                $contains = $this->getContain();
-                $target_key = '';
-
-                foreach($data as $key => $value) {
-
-                    if (in_array($key, $contains) === true) {
-                        if(count(get_object_vars($value)) > 1) {
-                            foreach($value as $k => $v) {
-                                $Contain->{$key}[] = $v;
-                            }
-                        } else {
-                            $Contain->{$key} = $value;
-                        }
-                    } else {
-                        $target_key = $key;
-                        $Target->{$key} = $value;
-                    }
+                if($map === true) {
+                    return $this->mapResponse($this->last_curl_result->response->data);
+                } else {
+                    return $this->last_curl_result->response->data;
                 }
 
-                if($Contain !== null) {
-                    foreach($Contain as $key => $value) {
-                        $Target->{$target_key}->{$key} = $value;
-                    }
-                }
+            } else {
+                $error->status = -1;
+                $error->data = $this->last_curl_result->response;
+                $error->errorMessage = 'Response contains no data.';
 
-                echo "\n".json_encode($Target)."\n";
-                $return = $Mapper->map($Target, new Offer());
-                var_dump($return);
-                exit;
-
-                if($Target !== null) {
-                    foreach($Target as $key => $value) {
-                        var_dump($key);
-                        $class = 'HasOffersApi\\Mappings\\'.$key;
-                        if(is_array($value)) {
-
-                        } else {
-                            $return = $Mapper->map($value, new $class());
-                        }
-                    }
-                }
-
-                exit;
-//                    $return[] = $Mapper->mapArray($value, [], new $class());
-
-//                var_dump($this->last_curl_result->response->data);exit;
-
-//                if(count($data) > 1) {
-//                    foreach($data as $key => $value) {
-//                        $class = 'HasOffersApi\\Mappings\\'.$key;
-//                        $return = $Mapper->mapArray($value, [], new $class());
-//                    }
-//                } else {
-//                    foreach($data as $key => $value) {
-//                        $class = 'HasOffersApi\\Mappings\\'.$key;
-//                        $return = $Mapper->map($value, new $class());
-//                    }
-//                }
-
-                return $return;
+                return $error;
             }
+
         } else {
             $error->status = -1;
-            $error->data = '';
-            $error->errorMessage = 'Seems there is no response field returned from end-point';
+            $error->data = null;
+            $error->errorMessage = 'Seems there is no response field returned from end-point.';
 
             return $error;
         }
     }
 
     /**
+     * Getting data from response and map them to the given class structure
+     *
+     * @see https://github.com/cweiske/jsonmapper
+     * @param $data
+     * @return null|object
+     */
+    private function mapResponse($data)
+    {
+        $Mapper = new \JsonMapper();
+        $Mapper->bStrictNullTypes = false;
+
+        $Target = new \stdClass();
+        $Contain = new \stdClass();
+        $contains = $this->getContain();
+        $target_key = '';
+        $mappings = null;
+
+        foreach($data as $key => $value) {
+
+            if (in_array($key, $contains) === true) {
+                $Contain->{$key} = $value;
+            } else {
+                $target_key = $key;
+                $Target->{$key} = $value;
+            }
+        }
+
+        if($Contain !== null) {
+            foreach($Contain as $key => $value) {
+                $Target->{$target_key}->{$key} = $value;
+            }
+        }
+
+        if($Target !== null) {
+            foreach($Target as $key => $value) {
+                $class = 'HasOffersApi\\Mappings\\'.$key;
+                $mappings = $Mapper->map($value, new $class());
+            }
+        }
+
+        return $mappings;
+    }
+
+    /**
+     * Get the data fields (columns) you set to get data from HasOffers
      * @return array
      */
-    public function getFields(): array
+    public function getFields()
     {
         return $this->url_params[self::PARAM_INDEX_FIELDS];
     }
 
     /**
+     * Set which data fields (columns) you want to get from HasOffers
+     *
      * @param array $fields
      * @return $this
      * @throws \Exception
      */
-    public function setFields(array $fields)
+    public function setFields($fields)
     {
         try {
             $field[self::PARAM_INDEX_FIELDS] = $fields;
@@ -279,7 +282,7 @@ class HasOffersClient
     /**
      * @return array
      */
-    public function getFilters(): array
+    public function getFilters()
     {
         return $this->url_params[Criteria::PARAM_INDEX_FILTERS];
     }
@@ -304,7 +307,7 @@ class HasOffersClient
     /**
      * @return array
      */
-    public function getContain(): array
+    public function getContain()
     {
         return $this->url_params[self::PARAM_INDEX_CONTAIN];
     }
@@ -314,7 +317,7 @@ class HasOffersClient
      * @return $this
      * @throws \Exception
      */
-    public function setContain(array $contain)
+    public function setContain($contain)
     {
         try {
             $contains[self::PARAM_INDEX_CONTAIN] = $contain;
@@ -328,7 +331,7 @@ class HasOffersClient
     /**
      * @return array
      */
-    public function getSort(): array
+    public function getSort()
     {
         return $this->url_params[self::PARAM_INDEX_SORT];
     }
@@ -340,7 +343,7 @@ class HasOffersClient
      * @return $this
      * @throws \Exception
      */
-    public function setSort(array $sort)
+    public function setSort($sort)
     {
         try {
             $sorting[self::PARAM_INDEX_SORT] = $sort;
@@ -354,7 +357,7 @@ class HasOffersClient
     /**
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->url_params[self::PARAM_INDEX_LIMIT];
     }
@@ -364,7 +367,7 @@ class HasOffersClient
      * @param int $limit
      * @return $this
      */
-    public function setLimit(int $limit)
+    public function setLimit($limit)
     {
         if($limit < 1) {
             $limit = $this->standard_limit;
@@ -382,7 +385,7 @@ class HasOffersClient
     /**
      * @return int
      */
-    public function getPage(): int
+    public function getPage()
     {
         return $this->url_params[self::PARAM_INDEX_PAGE];
     }
@@ -393,7 +396,7 @@ class HasOffersClient
      * @param int $page
      * @return $this
      */
-    public function setPage(int $page)
+    public function setPage($page)
     {
         if($page < 0) {
             $page = $this->standard_page;

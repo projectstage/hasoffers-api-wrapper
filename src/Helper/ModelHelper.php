@@ -17,7 +17,7 @@ class ModelHelper
 
     protected $fileContent;
 
-    public function __construct(string $file)
+    public function __construct($file)
     {
         $this->fileContent = $this->readFile($file);
     }
@@ -27,7 +27,7 @@ class ModelHelper
      * @return mixed
      * @throws \Exception
      */
-    private function readFile(string $file)
+    private function readFile($file)
     {
         try {
             return json_decode(file_get_contents($file));
@@ -56,7 +56,7 @@ class ModelHelper
      * @param string $model
      * @return array
      */
-    public function getModelColumns(string $model)
+    public function getModelColumns($model)
     {
         $columns = [];
 

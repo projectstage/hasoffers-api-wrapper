@@ -20,7 +20,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testSetCurrentTargetFailed($target, $method): void
+    public function testSetCurrentTargetFailed($target, $method)
     {
         $this->expectException(\Exception::class);
         $CriteriaTest = new Criteria('', $method);
@@ -29,7 +29,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testSetCurrentTargetSuccess($target, $method): void
+    public function testSetCurrentTargetSuccess($target, $method)
     {
         $CriteriaTest = new Criteria($target, $method);
 
@@ -41,7 +41,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testSetCurrentMethodFailed($target, $method): void
+    public function testSetCurrentMethodFailed($target, $method)
     {
         $this->expectException(\Exception::class);
         $CriteriaTest = new Criteria($target, '');
@@ -51,7 +51,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testSetCurrentMethodSuccess($target, $method): void
+    public function testSetCurrentMethodSuccess($target, $method)
     {
         $CriteriaTest = new Criteria($target, $method);
 
@@ -63,7 +63,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testGetCriteriaSuccess($target, $method): void
+    public function testGetCriteriaSuccess($target, $method)
     {
         $CriteriaTest = new Criteria($target, $method);
 
@@ -76,7 +76,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testAndFilterWithColumnFailed($target, $method, $column, $value): void
+    public function testAndFilterWithColumnFailed($target, $method, $column, $value)
     {
         $this->expectException(\Exception::class);
         $CriteriaTest = new Criteria($target, $method);
@@ -88,7 +88,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testAndFilterWithColumnSuccess($target, $method, $column, $value): void
+    public function testAndFilterWithColumnSuccess($target, $method, $column, $value)
     {
         $CriteriaTest = new Criteria($target, $method);
 
@@ -102,7 +102,7 @@ class CriteriaTest extends TestCase
     /**
      * @dataProvider dataProvider
      */
-    public function testAndFilterWithColumnAndCriteriaSuccess($target, $method, $column, $value, $criteria): void
+    public function testAndFilterWithColumnAndCriteriaSuccess($target, $method, $column, $value, $criteria)
     {
         $CriteriaTest = new Criteria($target, $method);
 

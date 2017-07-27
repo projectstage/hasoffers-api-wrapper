@@ -10,7 +10,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=7.1.0",
+    "php": ">=5.6",
     "ext-curl": "*",
     "phpunit/phpunit": "^6.3@dev",
     "phpunit/php-code-coverage": "*",
