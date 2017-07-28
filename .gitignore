@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+doc/
+vendor/
+__criterias_test.patch
+composer.lock
+run.php
