@@ -158,7 +158,7 @@ class HasOffersClient
     public function callApi($map = false) {
 
         // temporarily $map by default to false. All mapping classes needs to be finished before we can enable this function again
-        // TODO: prepare/create all mapping classes
+        // TODO: prepare/create all mapping classes!
         $map = false;
 
         $this->http_query_string = http_build_query($this->url_params);
