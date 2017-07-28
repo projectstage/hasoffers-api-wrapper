@@ -1,0 +1,3256 @@
+{
+  "AdManager": {
+    "addCreative": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createCampaign": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllCampaigns": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllCreatives": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCampaignById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCreativeById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getActiveNetworkCampaignCount": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCampaignCode": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCampaignCreatives": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUsage": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setCreativeCustomWeights": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setCreativeWeights": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCampaign": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCampaignField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCreative": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCreativeField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Advertiser": {
+    "addAccountNote": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "block": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "blockAffiliate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createSignupQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createSignupQuestionAnswer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAccountManagerId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPendingUnassignedAdvertiserIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPendingUnassignedAdvertisers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountBalance": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountManager": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountNotes": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBlockedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBlockedReasons": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCreatorUser": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOverview": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOwnersAdvertiserAccountId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getSignupAnswers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getSignupQuestions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUnblockedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "signup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "unblockAffiliate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAccountNote": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateSignupQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateSignupQuestionAnswer": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "AdvertiserBilling": {
+    "addInvoiceItem": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createInvoice": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllInvoices": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllInvoicesByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findInvoiceById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findInvoiceStats": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getNextStartDate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeInvoiceItem": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateInvoice": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateInvoiceField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateTaxInfo": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "AdvertiserUser": {
+    "checkPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAdvertiserId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "grantAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "resetPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "uniqueEmail": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Affiliate": {
+    "addAccountNote": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "adjustAffiliateClicks": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "block": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createSignupQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createSignupQuestionAnswer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "disableFraudAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "enableFraudAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllFraudAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAccountManagerId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPendingUnassignedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPendingUnassignedAffiliates": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findList": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountManager": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountNotes": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateTier": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getApprovedOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBlockedOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBlockedReasons": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCreatorUser": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferConversionCaps": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferHostnames": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferPayouts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferPayoutsAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferPixels": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOwnersAffiliateAccountId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPaymentMethods": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getReferralAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getReferralCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getReferringAffiliate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getSignupAnswers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getSignupQuestions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUnapprovedOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUnblockedOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeCustomReferralCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setCustomReferralCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "signup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "simpleSearch": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAccountNote": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateByRefId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodCheck": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodDirectDeposit": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodOther": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodPayQuicker": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodPayoneer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodPaypal": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updatePaymentMethodWire": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateSignupQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateSignupQuestionAnswer": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "AffiliateBilling": {
+    "addInvoiceItem": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createInvoice": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createReceipt": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllInvoices": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllInvoicesByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllReceipts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllReceiptsByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findInvoiceById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findInvoiceStats": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findLastInvoice": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findLastReceipt": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findReceiptById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateInvoices": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountBalance": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountHistory": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getNextStartDate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOutstandingInvoices": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPayoutTotals": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeInvoiceItem": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateInvoice": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateInvoiceField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateReceipt": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateReceiptField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateTaxInfo": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "AffiliateUser": {
+    "checkPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAffiliateId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "grantAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "resetPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "uniqueEmail": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Alert": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createAffiliateUserAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createEmployeeAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "dismissAffiliateUserAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "dismissAllAffiliateUserAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "dismissAllEmployeeAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "dismissEmployeeAlert": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "dismissMultipleEmployeeAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateUserAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getEmployeeAlerts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "sendToAffiliateUsers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "sendToEmployees": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "ApiKey": {
+    "findApiKeys": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "regenerateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateApiKeyStatus": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Application": {
+    "addAffiliateTier": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addHostname": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addOfferCategory": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addOfferGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "changeAdvertiserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "changeAffiliateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "changeNetworkApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createAdvertiserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createAffiliateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "decryptUnsubHash": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAdvertiserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAdvertiserApiKeyByAdvertiserId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAffiliateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAffiliateApiKeyByAffiliateId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAdvertiserApiKeys": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAffiliateApiKeys": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAffiliateTierAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAffiliateTiers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllBrowsers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllCountries": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllHostnames": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllOfferCategories": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllOfferCategoryOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllOfferGroupOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllOfferGroups": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPermissions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllRegions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllTimezones": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findBrowserById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCountryByCode": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPermissionById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPermissionByName": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPermissionsByGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findTimezoneById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findUserAuthIps": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateAllUnsubLinks": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateUnsubLink": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAccountInformation": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getActiveOfferCategoryCount": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBrand": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBrandInformation": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCountryRegions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPoFile": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTimezone": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "importAdvertisers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "importOffers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "resetPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAccountInformation": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAdvertiserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAffiliateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAffiliateTier": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateBrandEmail": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateBrandHostname": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateBrandJumpHostname": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateBrandJumpHostnameHasSsl": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateBrandNetworkName": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateHostname": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateOfferCategory": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateOfferGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "uploadPoFile": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "validAdvertiserApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "validAffiliateApiKey": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "whitelistNetworkApiIp": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Authentication": {
+    "findUserByCredentials": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findUserByToken": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "CashflowGroup": {
+    "createCashflowGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCashflowGroupById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCashflowGroupUsage": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCashflowGroups": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCashflowRuleFieldDefinitions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getGoalPayoutGroupsForGoal": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getGoalRevenueGroupsForGoal": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferPayoutGroupsForOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferRevenueGroupsForOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "replaceGoalPayoutGroupsForGoal": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "replaceGoalRevenueGroupsForGoal": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "replaceOfferPayoutGroupsForOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "replaceOfferRevenueGroupsForOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCashflowGroup": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Conversion": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAddedConversions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findUpdatedConversions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateMeta": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateStatus": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "ConversionMeta": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "CustomMenuLink": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "find": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findActive": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "CustomPage": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "find": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "CustomerList": {
+    "addCustomerAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addListAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createList": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllCustomers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllLists": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllListsByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findCustomerById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findListById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findSubscriptionById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getListAttributes": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeCustomerAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeListAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCustomer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateCustomerAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateList": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateListAttribute": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateListField": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateSubscription": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "DneList": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findByOfferId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "moveDneList": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "DownloadReport": {
+    "getDownloadReportLink": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Employee": {
+    "checkPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAdvertiserManagers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAffiliateManagers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByPermission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByPermission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findBrandOwnerInformation": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getHOMessage": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "grantAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeAccess": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeCustomCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "resetPassword": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setCustomCommission": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "uniqueEmail": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Goal": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateTracking": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPayouts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getRevenues": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTierPayouts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTierRevenues": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "InsertionOrder": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "InsertionOrderOffer": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "delete": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Notification": {
+    "clearUserSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUserSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "replaceUserSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "NotificationCenter": {
+    "createEventSubscription": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "deleteEventSubscription": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "deregisterWebhookEndpoint": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllDeliveryMetrics": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllEventSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllWebhookEndpoints": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "registerWebhookEndpoint": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "sendTestWebhookEvent": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateWebhookEndpoint": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Offer": {
+    "addApprovalQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addCategory": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addTargetBrowser": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addTargetCountry": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "addTargetCountryRegion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "blockAffiliate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAffiliateApprovals": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllFeaturedOfferIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAdvertiserId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllIdsByAffiliateId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllPendingAffiliateApprovals": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateTrackingLink": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "generateTrackingPixel": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateApplicationNote": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateApprovalStatus": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateHostnames": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliatePayment": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliatePayout": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateRevenue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getApprovalAnswers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getApprovalQuestions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getApprovedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getBlockedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCategories": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getConversionCaps": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCustomerList": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getGeoTargeting": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getGroups": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferFiles": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferFilesWithCreativeCode": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferListByGroupId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOfferUrls": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getOverview": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPayouts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getPixels": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getRevenues": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTargetBrowsers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTargetCountries": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getThumbnail": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTierPayouts": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getTierRevenues": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getUnapprovedAffiliateIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeAllGeoTargeting": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeCategory": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeConversionCap": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeGroup": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removePayout": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeRevenue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTargetBrowser": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTargetCountry": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTargetCountryRegion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTierPayout": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTierRevenue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "saveApprovalQuestionAnswer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setAffiliateApproval": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setAffiliateHostname": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setAffiliateTermsDate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setCategories": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setConversionCap": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setGroups": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setMultipleAffiliateApprovals": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setPayout": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setRevenue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setTargetBrowsers": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setTargetCountries": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setTierPayout": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setTierRevenue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "unblockAffiliate": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateApprovalQuestion": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateByRefId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferDisabledLink": {
+    "delete": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "save": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferFile": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllAvailable": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByName": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getCreativeCode": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferPixel": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAllowedTypes": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferTargeting": {
+    "addTargetRuleToOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "createTargetRule": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "deleteTargetRule": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findTargetRules": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getActiveOfferIdsUsingRule": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getActiveUsesOfRule": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getRuleTargetingForOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "removeTargetRuleFromOffer": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateTargetRule": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateTargetRuleOfferAction": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferUrl": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAllByIds": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "OfferWhitelist": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "delete": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Preference": {
+    "delete": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findByName": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPreferenceByNameTypeAndAccountId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPreferenceByNameTypeAndUserId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPreferencesByTypeAndAccountId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findPreferencesByTypeAndUserId": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getValue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "isEnabled": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setAccountPreference": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setUserPreference": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "setValue": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateAllUserPreferences": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "userPreferenceUpdateTermsAndConditions": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "RawLog": {
+    "getDownloadLink": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getLogExpirations": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "listDateDirs": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "listLogs": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "Report": {
+    "getActiveCurrencies": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getAffiliateCommissions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getConversions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getManagerCommissions": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getModSummaryLogs": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getReferrals": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getStats": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "getSubscriptions": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "RingRevenue": {
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "SavedReports": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "delete": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findByHash": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "ScheduledOfferChange": {
+    "create": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findScheduleById": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "findSchedules": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "TinyUrl": {
+    "findAll": {
+      "description": "",
+      "params": {
+
+      }
+    },
+    "updateRedirect": {
+      "description": "",
+      "params": {
+
+      }
+    }
+  },
+  "VatRate": {
+    "create": {
+      "description": "",
+      "params": {
+      }
+    },
+    "delete": {
+      "description": "",
+      "params": {
+      }
+    },
+    "findAll": {
+      "description": "",
+      "params": {
+      }
+    },
+    "findById": {
+      "description": "",
+      "params": {
+      }
+    },
+    "update": {
+      "description": "",
+      "params": {
+      }
+    },
+    "updateField": {
+      "description": "",
+      "params": {
+      }
+    }
+  }
+}
