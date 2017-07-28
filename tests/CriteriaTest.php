@@ -17,14 +17,6 @@ use PHPUnit\Framework\TestCase;
  */
 class CriteriaTest extends TestCase
 {
-    /**
-     * @dataProvider dataProvider
-     */
-    public function testSetCurrentTargetFailed($target, $method)
-    {
-        $this->expectException(\Exception::class);
-        $CriteriaTest = new Criteria('', $method);
-    }
 
     /**
      * @dataProvider dataProvider
@@ -35,16 +27,6 @@ class CriteriaTest extends TestCase
 
         $current_target = $CriteriaTest->getCurrentTarget();
         $this->assertEquals($target, $current_target);
-
-    }
-
-    /**
-     * @dataProvider dataProvider
-     */
-    public function testSetCurrentMethodFailed($target, $method)
-    {
-        $this->expectException(\Exception::class);
-        $CriteriaTest = new Criteria($target, '');
 
     }
 
