@@ -156,6 +156,11 @@ class HasOffersClient
      * @return mixed|null|object|\stdClass
      */
     public function callApi($map = false) {
+
+        // temporarily $map by default to false. All mapping classes needs to be finished before we can enable this function again
+        // TODO: prepare/create all mapping classes!
+        $map = false;
+
         $this->http_query_string = http_build_query($this->url_params);
         return $this->curl($this->http_query_string, $map);
     }
@@ -173,6 +178,7 @@ class HasOffersClient
         // cUrl process
         $error = new \stdClass();
 
+        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => 1,

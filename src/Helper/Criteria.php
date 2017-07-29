@@ -145,9 +145,11 @@ class Criteria
         switch($criteria) {
             case self::FILTER_EQUAL_TO:
             case self::FILTER_BETWEEN:
-                return $this->addConditionalFilter($column, $value, $criteria);
+                return $this->conditionalFilter($column, $value, $criteria);
                 break;
         }
+
+        unset($this->criteria[self::PARAM_INDEX_FILTERS][self::FILTER_OR]);
 
         if($criteria !== '') {
             $this->criteria[self::PARAM_INDEX_FILTERS][$column][$criteria] = $value;
@@ -173,9 +175,11 @@ class Criteria
         switch($criteria) {
             case self::FILTER_EQUAL_TO:
             case self::FILTER_BETWEEN:
-                return $this->addConditionalFilter($column, $value, $criteria);
+                return $this->conditionalFilter($column, $value, $criteria);
                 break;
         }
+
+        unset($this->criteria[self::PARAM_INDEX_FILTERS][$column]);
 
         if($criteria !== '') {
             $this->criteria[self::PARAM_INDEX_FILTERS][self::FILTER_OR][$column][$criteria] = $value;
@@ -187,8 +191,6 @@ class Criteria
     }
 
     /**
-     * If you have at least 2 variables you want to set for filtering - e.g date range - than you
-     * probably will use a conditional filter.
      *
      * @see https://developers.tune.com/network-docs/filtering-sorting-paging/#report-filtering
      * @param string $column
@@ -197,7 +199,7 @@ class Criteria
      * @return $this
      * @throws \Exception
      */
-    public function addConditionalFilter($column, $value, $criteria)
+    public function conditionalFilter($column, $value, $criteria)
     {
         if(is_array($value) === false || count($value) < 1) {
             throw new \Exception('You are using conditional filters. Therefore your $value parmater has to be an array with at least one entry.');
@@ -210,6 +212,8 @@ class Criteria
         if($criteria === self::FILTER_BETWEEN && count($value) != 2) {
             throw new \Exception('You are using conditional filters with scope "'.self::FILTER_BETWEEN.'". Therefore your $value parmater has to be an array with two entries.');
         }
+
+        unset($this->criteria[self::PARAM_INDEX_FILTERS][self::FILTER_OR]);
 
         $this->criteria[self::PARAM_INDEX_FILTERS][$column][self::PARAM_INDEX_CONDITIONAL] = $criteria;
 
