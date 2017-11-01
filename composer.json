@@ -8,13 +8,12 @@
       "email": "carsten.lorenz@projectstage.org"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
     "php": ">=5.6",
     "ext-curl": "*",
-    "phpunit/phpunit": "4.8.*",
+    "phpunit/phpunit": "*",
     "phpunit/php-code-coverage": "*",
-    "netresearch/jsonmapper": "dev-master"
+    "netresearch/jsonmapper": "*"
   },
   "autoload": {
     "psr-4": {
