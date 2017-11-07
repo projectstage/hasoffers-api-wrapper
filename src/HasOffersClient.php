@@ -178,7 +178,7 @@ class HasOffersClient
         // cUrl process
         $error = new \stdClass();
 
-        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
+//        echo $this->getApiConnectUrl().'&'.$http_query_string."\n";
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => 1,
