@@ -447,5 +447,16 @@ class HasOffersClient
         $this->url_params = array_merge($this->url_params, $pager);
         return $this;
     }
+    
+    /**
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function setParameter($key, $value)
+    {
+        $this->url_params[$key] = $value;
+        return $this;
+    }
 
 }
